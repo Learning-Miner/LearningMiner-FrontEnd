@@ -16,7 +16,6 @@ import { ConceptMapModule } from './conceptmap-module/conceptmap.module';
     ButtonModule,
     MenubarModule,
     DialogModule,
-
     ConceptMapModule
   ],
   providers: [],
