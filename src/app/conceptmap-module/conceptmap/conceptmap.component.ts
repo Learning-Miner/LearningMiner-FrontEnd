@@ -1,9 +1,9 @@
 import { Component, HostListener, HostBinding, DoCheck } from '@angular/core';
 
 import { ConceptMap } from './conceptmap.types';
-import { MouseService } from './mouse.service';
-import { SelectionService } from './selection.service';
-import { ComponentManager } from './componentmanager.service';
+import { MouseService } from '../services/mouse.service';
+import { SelectionService } from '../services/selection.service';
+import { ComponentManager } from '../services/componentmanager.service';
 
 /**
  * Representing the selection rubber band

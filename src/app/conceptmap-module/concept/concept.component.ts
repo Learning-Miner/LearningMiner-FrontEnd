@@ -1,10 +1,10 @@
 import { Component, Input, HostListener, HostBinding, ElementRef, OnInit, OnDestroy } from '@angular/core';
 
-import { Concept } from './conceptmap.types';
-import { MouseService  } from './mouse.service';
-import { SelectionService, Selectable } from './selection.service';
-import { ComponentManager } from './componentmanager.service';
-import { KeyCombination } from './utils';
+import { Concept } from '../conceptmap/conceptmap.types';
+import { MouseService  } from '../services/mouse.service';
+import { SelectionService, Selectable } from '../services/selection.service';
+import { ComponentManager } from '../services/componentmanager.service';
+import { KeyCombination } from '../utils/utils';
 
 /**
  * Concept component. Define the concept html element.

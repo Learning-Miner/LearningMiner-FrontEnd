@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { ConceptComponent } from './concept.component';
-import { PropositionComponent } from './proposition.component';
+import { ConceptComponent } from '../concept/concept.component';
+import { PropositionComponent } from '../proposition/proposition.component';
 
 /**
  * Class implementing this interface will be managed by selection service and get notified on selecting and deselecting

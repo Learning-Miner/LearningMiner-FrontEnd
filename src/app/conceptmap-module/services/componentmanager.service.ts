@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { ConceptComponent } from './concept.component';
-import { PropositionComponent } from './proposition.component';
-import { Concept } from './conceptmap.types';
+import { ConceptComponent } from '../concept/concept.component';
+import { PropositionComponent } from '../proposition/proposition.component';
+import { Concept } from '../conceptmap/conceptmap.types';
 
 /**
  * Component Manager service collects all component so communication could be easier.

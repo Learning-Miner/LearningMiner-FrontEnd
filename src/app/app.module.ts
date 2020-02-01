@@ -5,7 +5,7 @@ import { ButtonModule, MenubarModule, DialogModule } from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 
-import { ConceptMapModule } from './conceptmap/conceptmap.module';
+import { ConceptMapModule } from './conceptmap-module/conceptmap.module';
 
 @NgModule({
   declarations: [

@@ -1,9 +1,9 @@
 import { Component, HostListener, ViewChild, DoCheck } from '@angular/core';
 import { MenuItem } from 'primeng/primeng';
 
-import { ConceptMapComponent } from './conceptmap/conceptmap.component';
+import { ConceptMapComponent } from './conceptmap-module/conceptmap/conceptmap.component';
 
-import { KeyCombination } from './conceptmap/utils';
+import { KeyCombination } from './conceptmap-module/utils/utils';
 import { ie } from './etc';
 
 @Component({

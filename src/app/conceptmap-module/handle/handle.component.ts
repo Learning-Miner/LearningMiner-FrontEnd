@@ -1,8 +1,8 @@
 import { Component, Input, OnChanges, DoCheck } from '@angular/core';
 
-import { Concept, ConceptMap, Proposition } from './conceptmap.types';
-import { MouseService  } from './mouse.service';
-import { ConceptComponent } from './concept.component';
+import { Concept, ConceptMap, Proposition } from '../conceptmap/conceptmap.types';
+import { MouseService  } from '../services/mouse.service';
+import { ConceptComponent } from '../concept/concept.component';
 
 /**
  * Handle component. used to create propositions.
@@ -11,7 +11,7 @@ import { ConceptComponent } from './concept.component';
 @Component({
   selector: 'cm-handle',
   templateUrl: './handle.component.html',
-  styleUrls: ['./conceptmap.component.css']
+  styleUrls: ['../conceptmap/conceptmap.component.css']
 })
 export class HandleComponent implements DoCheck, OnChanges {
 

@@ -6,7 +6,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
-import { ConceptMapModule } from './conceptmap/conceptmap.module';
+import { ConceptMapModule } from './conceptmap-module/conceptmap.module';
 
 import { ButtonModule, MenubarModule, DialogModule } from 'primeng/primeng';
 

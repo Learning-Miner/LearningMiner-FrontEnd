@@ -1,12 +1,12 @@
 import { Component, Input, ViewChild, ElementRef, OnInit, OnDestroy, DoCheck } from '@angular/core';
 
-import { ConceptComponent } from './concept.component';
-import { Proposition } from './conceptmap.types';
-import { MouseService } from './mouse.service';
-import { SelectionService, Selectable } from './selection.service';
-import { ComponentManager } from './componentmanager.service';
+import { ConceptComponent } from '../concept/concept.component';
+import { Proposition } from '../conceptmap/conceptmap.types';
+import { MouseService } from '../services/mouse.service';
+import { SelectionService, Selectable } from '../services/selection.service';
+import { ComponentManager } from '../services/componentmanager.service';
 
-import { KeyCombination } from './utils';
+import { KeyCombination } from '../utils/utils';
 
 /**
  * Function used to calculate how proposition lines are to be clipped by concepts
@@ -63,7 +63,7 @@ function rectangleClip(rectWidth, rectHeight, x, y): {x: number, y: number} {
 @Component({
   selector: 'cm-proposition',
   templateUrl: './proposition.component.html',
-  styleUrls: ['./conceptmap.component.css']
+  styleUrls: ['../conceptmap/conceptmap.component.css']
 })
 export class PropositionComponent implements OnInit, OnDestroy, DoCheck, Selectable {
 
