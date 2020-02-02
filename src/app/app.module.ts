@@ -6,10 +6,12 @@ import { ButtonModule, MenubarModule, DialogModule } from 'primeng/primeng';
 import { AppComponent } from './app.component';
 
 import { ConceptMapModule } from './conceptmap-module/conceptmap.module';
+import { EditorComponent } from './editor/editor.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EditorComponent
   ],
   imports: [
     BrowserAnimationsModule,
