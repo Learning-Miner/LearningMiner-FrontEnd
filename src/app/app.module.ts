@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 import { ConceptMapModule } from './conceptmap-module/conceptmap.module';
 import { EditorComponent } from './editor/editor.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EditorComponent } from './editor/editor.component';
     ButtonModule,
     MenubarModule,
     DialogModule,
-    ConceptMapModule
+    ConceptMapModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
