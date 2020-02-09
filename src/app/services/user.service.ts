@@ -7,6 +7,7 @@ import { map, catchError } from 'rxjs/operators';
 import { BASE_URL } from '../shared/constants';
 import { handleError } from './error-handler';
 import { of } from 'rxjs/observable/of';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class UserService {
@@ -15,8 +16,11 @@ export class UserService {
   tryGetUser = true;
   userToReturn: User = null;
   
-  constructor(private http: HttpClient,
-    private cookieService: CookieService) { }
+  constructor(
+    private http: HttpClient,
+    private cookieService: CookieService,
+    private router: Router
+    ) { }
 
   private static _handleError(err: HttpErrorResponse | any) {
     return Observable.throw(err.message || 'Error: Imposible completar la petición.');
@@ -27,7 +31,7 @@ export class UserService {
     return this.http.get<User[]>(this.USER_END_POINT);
   }
 
-  loginUser(email: string, password: string) {
+  loginUser(email: string, password: string): Observable<any> {
     return this.http.post(`${this.USER_END_POINT}login`, {
       email,
       password
@@ -38,6 +42,19 @@ export class UserService {
       }),
       catchError(handleError)
     );
+  }
+
+  loggedIn() {
+    return !!localStorage.getItem('token');
+  }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
+  logout() {
+    localStorage.removeItem('item');
+    this.router.navigate(['/login']);
   }
 
   decode(): Observable<any> {

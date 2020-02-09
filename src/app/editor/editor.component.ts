@@ -5,6 +5,8 @@ import { ConceptMapComponent } from '../conceptmap-module/conceptmap/conceptmap.
 
 import { KeyCombination } from '../conceptmap-module/utils/utils';
 import { ie } from '../etc';
+import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cm-editor',
@@ -14,6 +16,11 @@ import { ie } from '../etc';
 export class EditorComponent implements DoCheck {
 
   @ViewChild(ConceptMapComponent) cmap: ConceptMapComponent;
+
+  constructor (
+    private userService: UserService,
+    private router: Router
+  ) {}
 
   ctrlA = new KeyCombination('A', [KeyCombination.modifierKey.ctrl]);
   ctrlS = new KeyCombination('S', [KeyCombination.modifierKey.ctrl]);
@@ -45,6 +52,10 @@ export class EditorComponent implements DoCheck {
             command: () => this.cmap.deleteSelected()
           }
         ]
+      },
+      {
+        label: 'Logout',
+        command: () => this.logout()
       }
     ];
 
@@ -125,6 +136,12 @@ export class EditorComponent implements DoCheck {
     if (this.ctrlO.match(event)) {
       this.importTool.visible = true;
       event.preventDefault();
+    }
+  }
+
+  logout() {
+    if (this.userService.loggedIn()) {
+      this.userService.logout();
     }
   }
 
