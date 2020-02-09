@@ -8,11 +8,14 @@ import { AppComponent } from './app.component';
 import { ConceptMapModule } from './conceptmap-module/conceptmap.module';
 import { EditorComponent } from './editor/editor.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditorComponent
+    EditorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -20,7 +23,9 @@ import { AppRoutingModule } from './/app-routing.module';
     MenubarModule,
     DialogModule,
     ConceptMapModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
