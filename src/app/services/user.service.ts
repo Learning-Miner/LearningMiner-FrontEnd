@@ -4,10 +4,10 @@ import { Observable } from 'rxjs/Observable';
 import { User } from '../models/user';
 import { CookieService } from 'ngx-cookie-service';
 import { map, catchError } from 'rxjs/operators';
-import { BASE_URL } from '../shared/constants';
 import { handleError } from './error-handler';
 import { of } from 'rxjs/observable/of';
 import { Router } from '@angular/router';
+import { BASE_URL } from '../shared/constants';
 
 @Injectable()
 export class UserService {
@@ -53,7 +53,7 @@ export class UserService {
   }
 
   logout() {
-    localStorage.removeItem('item');
+    localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
 
