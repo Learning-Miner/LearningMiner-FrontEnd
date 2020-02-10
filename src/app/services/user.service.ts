@@ -70,4 +70,8 @@ export class UserService {
       return of(this.userToReturn);
     }
   }
+
+  signup(user: User): Observable<User> {
+    return this.http.post<User>(`${this.USER_END_POINT}signup`, user);
+  }
 }
