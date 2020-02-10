@@ -52,8 +52,13 @@ export class UserService {
     return localStorage.getItem('token');
   }
 
+  getRol() {
+    return localStorage.getItem('rol');
+  }
+
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('rol');
     this.router.navigate(['/login']);
   }
 

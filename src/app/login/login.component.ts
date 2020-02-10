@@ -13,10 +13,7 @@ import { UserService } from '../services/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup;
-    loading = false;
-    submitted = false;
-    returnUrl: string;
+  userRol: string;
 
     constructor(
       private formBuilder: FormBuilder,
@@ -40,8 +37,6 @@ export class LoginComponent implements OnInit {
         password: ['', [Validators.required]],
       });
     }
-    // convenience getter for easy access to form fields
-    get f() { return this.loginForm.controls; }
 
     onSubmit() {
       const user = this.userForm.value as User;
@@ -51,15 +46,10 @@ export class LoginComponent implements OnInit {
         console.log('Login enviado');
         const credentialsCorrect = res;
         localStorage.setItem('token', res.token);
+        localStorage.setItem('rol', res.rol);
+        this.userForm = res.rol;
         this.router.navigate(['/editor']);
         console.log(credentialsCorrect);
-        /*this.userService.getUserByNickName(user.nickname).subscribe(
-          result => {
-            const userToSave = result;
-            localStorage.setItem('user', JSON.stringify(userToSave));
-            this.router.navigate(['/profile']);
-          }
-        );*/
       }, error => {
         console.log('Usuario o contraseña incorrecto.');
       });
