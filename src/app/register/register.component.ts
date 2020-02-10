@@ -46,9 +46,10 @@ export class RegisterComponent implements OnInit {
 
       this.userService.signup(userToCreate).subscribe(res => {
         console.log('Usuario registrado');
+        console.log(res);
         this.router.navigate(['/login']);
       }, error => {
-        console.log('Email ya está en uso');
+        console.log(error);
       });
     }
 
