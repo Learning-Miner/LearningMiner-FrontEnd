@@ -17,6 +17,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { RegisterComponent } from './register/register.component';
+import { ListMapsComponent } from './list-maps/list-maps.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { RegisterComponent } from './register/register.component';
     EditorComponent,
     LoginComponent,
     RegisterComponent,
+    ListMapsComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserAnimationsModule,

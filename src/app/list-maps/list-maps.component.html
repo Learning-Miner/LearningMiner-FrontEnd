@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+<div class="card" style="margin-bottom: 15px;" *ngFor="let map of maps">
+  <h5 class="card-header">Mapa conceptual</h5>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-3">
+        <img src="assets\images\conceptmap.png" class="img-fluid rounded shadow-lg" alt="imagen">
+      </div>
+      <div class="col-9">
+        <h4 class="card-title">Título: {{map[0]}}</h4>
+        <a [routerLink]="['/details']" class="btn btn-primary">Details</a>
+      </div>
+    </div>
+  </div>
+</div>

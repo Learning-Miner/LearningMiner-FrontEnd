@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../models/user';
 import { CookieService } from 'ngx-cookie-service';
@@ -8,6 +8,9 @@ import { handleError } from './error-handler';
 import { of } from 'rxjs/observable/of';
 import { Router } from '@angular/router';
 import { BASE_URL } from '../shared/constants';
+import { ConceptMap } from '../conceptmap-module/conceptmap/conceptmap.types';
+import { Headers } from '@angular/http';
+import { Map } from '../models/concept-map';
 
 @Injectable()
 export class UserService {
@@ -73,5 +76,11 @@ export class UserService {
 
   signup(user: User): Observable<User> {
     return this.http.post<User>(`${this.USER_END_POINT}signup`, user);
+  }
+
+  getMaps(): Observable<Map[]> {
+    const headers = new HttpHeaders();
+    headers.append('token', localStorage.getItem('token'));
+    return this.http.get<Map[]>(`${this.USER_END_POINT}cpt-map`, {headers});
   }
 }
