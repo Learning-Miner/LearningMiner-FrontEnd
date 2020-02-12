@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
 import { RegisterComponent } from './register/register.component';
 import { ListMapsComponent } from './list-maps/list-maps.component';
+import { MapDetailComponent } from './map-detail/map-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'list', component: ListMapsComponent, canActivate: [AuthGuard] },
+  { path: 'editor/:id', component: MapDetailComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

@@ -83,4 +83,9 @@ export class UserService {
     headers.append('token', localStorage.getItem('token'));
     return this.http.get<Map[]>(`${this.USER_END_POINT}cpt-map`, {headers});
   }
+
+  getMap(mapId: string): Observable<Map>{
+    return this.http.get<Map>(`${this.USER_END_POINT}cpt-map/${mapId}`);
+
+  }
 }

@@ -19,6 +19,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { RegisterComponent } from './register/register.component';
 import { ListMapsComponent } from './list-maps/list-maps.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MapDetailComponent } from './map-detail/map-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     RegisterComponent,
     ListMapsComponent,
     NavbarComponent,
+    MapDetailComponent,
   ],
   imports: [
     BrowserAnimationsModule,

@@ -1,0 +1,14 @@
+<p-menubar id="menubar" [model]='menu'>Angular2 Concept map</p-menubar>
+<cm-concept-map></cm-concept-map>
+<div *ngIf="isEmpty" class="help-text" style="left: 50%; top: 50%; transform: translate(-50%, -50%);">Double click to create a concept</div>
+
+<p-dialog header="Import" [(visible)]="importTool.visible" modal="true" dismissableMask="true" responsive="true">
+  <span>Open a concept map.</span>
+  <input type="file" title="Open" accept=".json" (change)='importTool.chooseFile($event)'>
+  <p-footer>
+    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+      <button type="button" pButton (click)="importTool.visible=false" label="Cancel"></button>
+      <button type="button" pButton (click)="importTool.loadFile()" [disabled]="importTool.disabled()" label="Open"></button>
+    </div>
+  </p-footer>
+</p-dialog>
