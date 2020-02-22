@@ -27,6 +27,8 @@ export class RegisterComponent implements OnInit {
 
     private buildUserForm() {
       this.userForm = this.formBuilder.group({
+        name: ['', [Validators.required]],
+        lastname: ['', [Validators.required]],
         email: ['', [Validators.required]],
         password: ['', [Validators.required]],
         rol: ['', [Validators.required]],
@@ -47,7 +49,12 @@ export class RegisterComponent implements OnInit {
       this.userService.signup(userToCreate).subscribe(res => {
         console.log('Usuario registrado');
         console.log(res);
-        this.router.navigate(['/login']);
+        this.userService.loginUser(userToCreate.email, userToCreate.password).subscribe(data => {
+          console.log(data);
+          this.router.navigate(['/list']);
+        }, err => {
+          console.log(err);
+        });
       }, error => {
         console.log(error);
       });

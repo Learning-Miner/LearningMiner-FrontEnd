@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     onSubmit() {
       const user = this.userForm.value as User;
       console.log(user);
-  
+
       this.userService.loginUser(user.email, user.password ).subscribe(res => {
         console.log('Login enviado');
         const credentialsCorrect = res;
