@@ -41,12 +41,14 @@ h1{
   text-align: center;
   font-size: 2.8cm;
   font-weight: bold;  
+  user-select: none;
 }
 
 label{
   font-weight: bold;
   font-size: 1.5cm;
   padding-top: 3cm;
+  user-select: none;
 }
 
 input{
@@ -60,6 +62,12 @@ input{
   float: right;
   resize: both;
   font-size:1.3cm;
+}
+input:focus{
+  background-color:#fff0f0;
+}
+input::selection{
+  background-color: #25c1cc96;
 }
 
 button{
