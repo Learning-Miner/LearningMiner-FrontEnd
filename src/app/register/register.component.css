@@ -40,13 +40,15 @@ body{
 h1{
   text-align: center;
   font-size: 2.8cm;
-  font-weight: bold;  
+  font-weight: bold; 
+  user-select: none; 
 }
 
 label{
   font-weight: bold;
   font-size: 1.5cm;
   padding-top: 3cm;
+  user-select: none;
 }
 
 input{
@@ -62,22 +64,29 @@ input{
   font-size:1.3cm;
 }
 
-button{
-   background-color:whitesmoke;
-   border-radius: 12px;
-   margin-top:2cm;
-   margin-left: 5cm;
-   padding: 35px 40px;
-   text-align: center;
-   font-weight: bold;
-   text-decoration: none;
-   color:#306a76;
-   display: block;
-   box-sizing: border-box;
-   font-size: 50px;
-   cursor: pointer;
-
+input::selection{
+  background-color: #25c1cc96;
 }
+input:focus{
+  background-color:#fff0f0;
+}
+
+button{
+  background-color:whitesmoke;
+  border-radius: 12px;
+  margin-top:2cm;
+  margin-left: 5cm;
+  padding: 35px 40px;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  color:#306a76;
+  display: block;
+  box-sizing: border-box;
+  font-size: 50px;
+  cursor: pointer;
+}
+
 #caja{
   font-weight: bold;
   padding-top: 2.6cm;
@@ -89,6 +98,9 @@ select{
   font-size: 1.5cm;
 }
 
+select:focus{
+  background-color:#fff0f0;;
+}
 
 .b:hover{
   background-color:#fff0f0;
