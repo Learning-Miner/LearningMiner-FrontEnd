@@ -1,4 +1,4 @@
-import { Component, HostListener, ViewChild, DoCheck } from '@angular/core';
+import {Component, HostListener, ViewChild, DoCheck, OnInit} from '@angular/core';
 import { MenuItem } from 'primeng/primeng';
 
 import { ConceptMapComponent } from '../conceptmap-module/conceptmap/conceptmap.component';
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.css']
 })
-export class EditorComponent implements DoCheck {
+export class EditorComponent implements OnInit, DoCheck {
 
   @ViewChild(ConceptMapComponent) cmap: ConceptMapComponent;
 
@@ -77,6 +77,7 @@ export class EditorComponent implements DoCheck {
     loadFile: () => {
       try {
         this.cmap.import(this.importTool._file);
+        // console.log(this.importTool._file);
         this.importTool.visible = false;
         this.importTool._file = undefined;
       } catch (err) {
@@ -142,6 +143,18 @@ export class EditorComponent implements DoCheck {
   logout() {
     if (this.userService.loggedIn()) {
       this.userService.logout();
+    }
+  }
+
+  ngOnInit(): void {
+    if (!!localStorage.getItem('mapId')) {
+      this.userService.getMap(localStorage.getItem('mapId')).subscribe(res => {
+        this.importTool._file = JSON.stringify(res);
+        // console.log(this.importTool._file);
+        this.importTool.loadFile();
+      }, err => {
+        console.log(err);
+      });
     }
   }
 

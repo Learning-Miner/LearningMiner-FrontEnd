@@ -18,7 +18,7 @@ export class UserService {
   readonly USER_END_POINT = BASE_URL + 'api/';
   tryGetUser = true;
   userToReturn: User = null;
-  
+
   constructor(
     private http: HttpClient,
     private cookieService: CookieService,
@@ -60,8 +60,7 @@ export class UserService {
   }
 
   logout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('rol');
+    localStorage.clear();
     this.router.navigate(['/login']);
   }
 

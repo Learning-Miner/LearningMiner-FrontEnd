@@ -17,12 +17,16 @@ export class ListMapsComponent implements OnInit {
   ngOnInit() {
     this.userService.getMaps().subscribe(res => {
       this.maps = res;
-      console.log("Mapas");
+      console.log('Mapas');
       console.log(this.maps);
       this.mapsTemporal = this.maps.slice();
       console.log(this.mapsTemporal);
     }, error => {
       console.log(error);
     });
+  }
+
+  click(mapId) {
+    localStorage.setItem('mapId', mapId);
   }
 }

@@ -19,7 +19,6 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { RegisterComponent } from './register/register.component';
 import { ListMapsComponent } from './list-maps/list-maps.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { MapDetailComponent } from './map-detail/map-detail.component';
 import { MenuInicioComponent } from './menu-inicio/menu-inicio.component';
 
 @NgModule({
@@ -30,7 +29,6 @@ import { MenuInicioComponent } from './menu-inicio/menu-inicio.component';
     RegisterComponent,
     ListMapsComponent,
     NavbarComponent,
-    MapDetailComponent,
     MenuInicioComponent,
   ],
   imports: [
