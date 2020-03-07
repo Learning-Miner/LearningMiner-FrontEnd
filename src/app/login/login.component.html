@@ -18,28 +18,28 @@
     <section id="pantalla-dividida">
         <div class="izquierda">
             <div class="container">
-                <h1>Iniciar Sesion</h1>
+                <h1> Log In </h1>
                 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="text" formControlName="email" class="form-control"
                             [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
                         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                            <div *ngIf="f.email.errors.required" >El email es requerido</div>
+                            <div *ngIf="f.email.errors.required" >The email is required</div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="password">Contraseña</label>
+                        <label for="password">Password</label>
                         <input type="password" formControlName="password" class="form-control"
                             [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                            <div *ngIf="f.password.errors.required">La contraseña es requerida</div>
+                            <div *ngIf="f.password.errors.required">The password is required</div>
                         </div>
                     </div>
                     <div class="form-group" style="text-align: center;">
                         <button [disabled]="loading" class="btn btn-primary" class="b   ">
                             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                            Iniciar sesión
+                            Log In
                         </button>
                     </div>
                 </form>
