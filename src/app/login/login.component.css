@@ -1,91 +1,94 @@
-body{
+body {
     margin: 0;
     padding: 0;
     font-family: "Montserrat";
-  }
-  
-.izquierda{
-  background: url(pantallaLR.jpg);
-  background-size: cover;
-  width: 50%;
-  height: 100vh;
-}
-.derecha{
-  background: url(learningMiner.jpg);
-  background-size: 45cm 45cm;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 50%;
 }
 
-#pantalla-dividida{
-  display: flex;
-}
-.container{
-  background-color:#f6e3a0;
-  border-radius: 15px;
-  padding: 5cm 5cm;
-  background-position: center;
-  text-decoration: none;
-  color:#306a76;
-  display: block;
-  box-sizing: border-box;
-  height: 36.9cm;
-  margin-top: 17.3cm;
-  margin-left: 19.9cm; 
- 
+.izquierda {
+    background: url(pantallaLR.jpg);
+    background-size: cover;
+    width: 50%;
+    height: 100vh;
 }
 
-h1{
-  text-align: center;
-  font-size: 2.8cm;
-  font-weight: bold;  
-  user-select: none;
+.derecha {
+    background: url(learningMiner.jpg);
+    background-size: 45cm 45cm;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 50%;
 }
 
-label{
-  font-weight: bold;
-  font-size: 1.5cm;
-  padding-top: 3cm;
-  user-select: none;
+#pantalla-dividida {
+    display: flex;
 }
 
-input{
-  background-color: white;
-  width: 100%;
-  height: 3cm;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: text;
-  float: right;
-  resize: both;
-  font-size:1.3cm;
-}
-input:focus{
-  background-color:#fff0f0;
-}
-input::selection{
-  background-color: #25c1cc96;
+.container {
+    background-color: #f6e3a0;
+    border-radius: 15px;
+    padding: 5cm 5cm;
+    background-position: center;
+    text-decoration: none;
+    color: #306a76;
+    display: block;
+    box-sizing: border-box;
+    height: 36.9cm;
+    margin-top: 17.3cm;
+    margin-left: 19.9cm;
 }
 
-button{
-   background-color:whitesmoke;
-   border-radius: 12px;
-   margin-top: 6cm;
-   margin-left: 6.5cm;
-   padding: 35px 40px;
-   text-align: center;
-   font-weight: bold;
-   text-decoration: none;
-   color:#306a76;
-   display: block;
-   box-sizing: border-box;
-   font-size: 50px;
-   cursor: pointer;
-
+h1 {
+    text-align: center;
+    font-size: 2.8cm;
+    font-weight: bold;
+    user-select: none;
 }
-.b:hover{
-  background-color:#fff0f0;
+
+label {
+    font-weight: bold;
+    font-size: 1.5cm;
+    padding-top: 3cm;
+    user-select: none;
+}
+
+input {
+    background-color: white;
+    width: 100%;
+    height: 3cm;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: text;
+    float: right;
+    resize: both;
+    font-size: 1.3cm;
+}
+
+input:focus {
+    background-color: #fff0f0;
+}
+
+input::selection {
+    background-color: #25c1cc96;
+}
+
+button {
+    background-color: whitesmoke;
+    border-radius: 12px;
+    margin-top: 6cm;
+    margin-left: 6.5cm;
+    padding: 35px 40px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    color: #306a76;
+    display: block;
+    box-sizing: border-box;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.b:hover {
+    background-color: #fff0f0;
 }

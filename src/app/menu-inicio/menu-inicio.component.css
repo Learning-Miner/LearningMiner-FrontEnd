@@ -1,49 +1,51 @@
-body{
+body {
     margin: 0;
     padding: 0;
     background-image: url(PantallaIncioLM.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     font-family: "Montserrat"
-  }
-  
-  #opciones{
+}
+
+#opciones {
     display: flex;
-  }
-  .derecha{
+}
+
+.derecha {
     width: 50%;
     height: 100vh;
-  }
-  
-  .bi{
+}
+
+.bi {
     position: absolute;
     left: 74.5%;
     top: 70%;
     z-index: 2;
-  }
-  .br{
-   position: absolute;
+}
+
+.br {
+    position: absolute;
     left: 74.3%;
     top: 80%;
     z-index: 2;
-  }
-  
-  a{
-   background-color: #f6e3a0;
-   border-radius: 12px;
-   margin: auto;
-   padding: 55px 60px;
-   text-align: center;
-   text-decoration: none;
-   color:#306a76;
-   display: block;
-   font-weight: bold;
-   box-sizing: border-box;
-   font-size: 70px;
-   cursor: pointer;
-   
-  }
-  a:hover {
+}
+
+a {
+    background-color: #f6e3a0;
+    border-radius: 12px;
+    margin: auto;
+    padding: 55px 60px;
+    text-align: center;
+    text-decoration: none;
+    color: #306a76;
+    display: block;
+    font-weight: bold;
+    box-sizing: border-box;
+    font-size: 70px;
+    cursor: pointer;
+}
+
+a:hover {
     color: #25c0cc;
     font-weight: bold;
-  }
+}
