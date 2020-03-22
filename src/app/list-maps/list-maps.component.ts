@@ -29,4 +29,13 @@ export class ListMapsComponent implements OnInit {
   click(mapId) {
     localStorage.setItem('mapId', mapId);
   }
+
+  remove(mapId) {
+    this.userService.deleteMap(mapId).subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
+    window.location.reload();
+  }
 }

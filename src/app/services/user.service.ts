@@ -85,6 +85,9 @@ export class UserService {
 
   getMap(mapId: string): Observable<Map>{
     return this.http.get<Map>(`${this.USER_END_POINT}cpt-map/${mapId}`);
+  }
 
+  deleteMap (mapId: string): Observable<Map> {
+    return this.http.delete<Map>(`${this.USER_END_POINT}cpt-map/${mapId}`);
   }
 }
