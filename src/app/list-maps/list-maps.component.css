@@ -75,7 +75,3 @@ tr td {
 tr:hover {
     background-color: #e7d8d0;
 }
-
-h1:hover {
-    font-weight: bold;
-}
