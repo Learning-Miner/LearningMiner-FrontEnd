@@ -9,6 +9,7 @@
       <div class="col-9">
         <h4 class="card-title">Título: {{map[0]}}</h4>
         <a [routerLink]="['/editor', map[1]]" class="btn btn-primary" (click)="click(map[1])">Editar</a>
+        <a class="btn btn-primary" (click)="remove(map[1])">Eliminar</a>
       </div>
     </div>
   </div>

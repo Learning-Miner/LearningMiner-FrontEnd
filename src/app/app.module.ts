@@ -19,7 +19,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { RegisterComponent } from './register/register.component';
 import { ListMapsComponent } from './list-maps/list-maps.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { MenuInicioComponent } from './menu-inicio/menu-inicio.component';
+import { StartMenuComponent } from './start-menu/start-menu.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { MenuInicioComponent } from './menu-inicio/menu-inicio.component';
     RegisterComponent,
     ListMapsComponent,
     NavbarComponent,
-    MenuInicioComponent,
+    StartMenuComponent,
   ],
   imports: [
     BrowserAnimationsModule,

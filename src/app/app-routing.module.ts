@@ -5,16 +5,16 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
 import { RegisterComponent } from './register/register.component';
 import { ListMapsComponent } from './list-maps/list-maps.component';
-import { MenuInicioComponent } from './menu-inicio/menu-inicio.component';
+import {StartMenuComponent} from './start-menu/start-menu.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'menuInicio', pathMatch: 'full' },
+  { path: '', redirectTo: 'startMenu', pathMatch: 'full' },
   { path: 'editor', component: EditorComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'list', component: ListMapsComponent, canActivate: [AuthGuard] },
   { path: 'editor/:id', component: EditorComponent, canActivate: [AuthGuard] },
-  { path: 'menuInicio', component: MenuInicioComponent},
+  { path: 'startMenu', component: StartMenuComponent }
 ];
 
 @NgModule({
