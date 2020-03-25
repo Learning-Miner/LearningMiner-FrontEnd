@@ -1,16 +1,29 @@
-<app-navbar></app-navbar>
-<div class="card" style="margin-bottom: 15px;" *ngFor="let map of maps">
-  <h5 class="card-header">Mapa conceptual</h5>
-  <div class="card-body">
-    <div class="row">
-      <div class="col-3">
-        <img src="assets\images\conceptmap.png" class="img-fluid rounded shadow-lg" alt="imagen">
-      </div>
-      <div class="col-9">
-        <h4 class="card-title">Título: {{map[0]}}</h4>
-        <a [routerLink]="['/editor', map[1]]" class="btn btn-primary" (click)="click(map[1])">Editar</a>
-        <a class="btn btn-primary" (click)="remove(map[1])">Eliminar</a>
-      </div>
-    </div>
-  </div>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title>LearningMiner</title>
+      <base href="/">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Open source concept mapping tool built with angular">
+      <meta name="keywords" content="Pedagogical reading comprehension tool">
+      <meta name="author" content="D2M">
+      <link rel="formatoVentana" href="list-maps.component.css">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet">
+  </head>
+  
+  <body>
+    <app-navbar></app-navbar>
+    <h1>Conceptual Maps</h1>
+    <table *ngFor="let map of maps">
+      <tr>
+        <td><h2>{{map[0]}}</h2></td>
+        <td ><a  id="e" [routerLink]="['/editor', map[1]]" class="btn btn-primary" (click)="click(map[1])">Edit</a></td>
+        <td ><a id= "d" class="btn btn-primary" (click)="remove(map[1])">Delete</a></td>
+      </tr>
+ 
+    </table>
+    
+  </body>
+</html>
