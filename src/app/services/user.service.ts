@@ -77,13 +77,13 @@ export class UserService {
     return this.http.post<User>(`${this.USER_END_POINT}signup`, user);
   }
 
-  getMaps(): Observable<Map[]> {
+  getMaps(query: string): Observable<Map[]> {
     const headers = new HttpHeaders();
     headers.append('token', localStorage.getItem('token'));
-    return this.http.get<Map[]>(`${this.USER_END_POINT}cpt-map`, {headers});
+    return this.http.post<Map[]>(`${this.USER_END_POINT}cpt-map/filter`, {query}, {headers});
   }
 
-  getMap(mapId: string): Observable<Map>{
+  getMap(mapId: string): Observable<Map> {
     return this.http.get<Map>(`${this.USER_END_POINT}cpt-map/${mapId}`);
   }
 

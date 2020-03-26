@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', res.token);
         localStorage.setItem('rol', res.rol);
         this.userForm = res.rol;
-        this.router.navigate(['/list']);
+        this.router.navigate(['/main-menu']);
         console.log(credentialsCorrect);
       }, error => {
         console.log('Usuario o contraseña incorrecto.');

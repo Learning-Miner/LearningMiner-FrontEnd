@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
-import { ConceptMap } from '../conceptmap-module/conceptmap/conceptmap.types';
-import { Map } from '../models/concept-map';
+import {Map} from '../models/concept-map';
+import {UserService} from '../services/user.service';
 
 @Component({
-  selector: 'cm-list-maps',
-  templateUrl: './list-maps.component.html',
-  styleUrls: ['./list-maps.component.css']
+  selector: 'cm-done-maps',
+  templateUrl: './done-maps.component.html',
+  styleUrls: ['./done-maps.component.css']
 })
-export class ListMapsComponent implements OnInit {
+export class DoneMapsComponent implements OnInit {
 
   maps: Map[];
   mapsTemporal: Map[];
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getMaps('edit').subscribe(res => {
+    this.userService.getMaps('done').subscribe(res => {
       this.maps = res;
       console.log('Mapas');
       console.log(this.maps);
@@ -38,4 +37,5 @@ export class ListMapsComponent implements OnInit {
     });
     window.location.reload();
   }
+
 }
