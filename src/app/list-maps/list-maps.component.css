@@ -30,7 +30,7 @@ table {
     background-color: #fff0f0;
     border-style: solid;
     border-color: #fde7e7;
-    overflow: auto;
+    overflow-y: auto;
 }
 
 h2 {
