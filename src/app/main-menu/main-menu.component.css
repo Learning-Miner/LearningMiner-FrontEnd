@@ -2,9 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Montserrat";
-    background-image: url(mm.jpg);
-    background-attachment: fixed;
-    background-size: cover;
+    background-color: #fcfdfe;
 }
 
 #pantalla-dividida {
@@ -25,7 +23,7 @@ body {
 }
 
 h1 {
-    font-family: "Cinzel";
+    font-family: "Lora";
     font-size: 125px;
     padding-top: 3%;
     padding-bottom: 5%;
@@ -45,7 +43,7 @@ p {
 }
 
 h2 {
-    font-family: "Cinzel";
+    font-family: "Lora";
     font-size: 95px;
     width: 150%;
     margin-top: 8vh;
