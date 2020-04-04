@@ -10,23 +10,44 @@
   <meta name="keywords" content="Pedagogical reading comprehension tool">
   <meta name="author" content="D2M">
   <link rel="formatoVentana" href="list-maps.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<app-navbar></app-navbar>
-<h1>Main menu</h1>
-<div *ngIf="userService.isStudent()">
-  <a id="e" [routerLink]="['/list']" class="btn btn-primary">Editing Maps</a>
-  <a id="f" [routerLink]="['/toDoMaps']" class="btn btn-primary">To do Maps</a>
-  <a id="g" [routerLink]="['/doneMaps']" class="btn btn-primary">Done Maps</a>
-</div>
+  <app-navbar></app-navbar>
 
-<div *ngIf="userService.isTeacher()">
-  <a class="boton" [routerLink]="['/list']" class="btn btn-primary">Ongoing Maps</a>
-  <a class="f" [routerLink]="['/toDoMaps']" class="btn btn-primary">To do Maps</a>
-  <a class="g" [routerLink]="['/doneMaps']" class="btn btn-primary">Done Maps</a>
-</div>
+  <section id="pantalla-dividida" *ngIf="userService.isStudent()">
+
+    <div class="izquierda">
+      <div class = "recomendacion">
+        <h1> KEEP IN MIND </h1>
+        <p> Acá va el parrafo</p>
+      </div>
+    </div>
+
+    <div class ="derecha">
+      <h2>MY CONCEPTUAL MAPS</h2>
+      <table>
+        <td>
+          <tr><a [routerLink]="['/toDoMaps']" class="btn btn-primary">TO DO Maps</a></tr>
+          <tr><a  [routerLink]="['/list']" class="btn btn-primary">DOING Maps</a></tr>
+          <tr><a [routerLink]="['/doneMaps']" class="btn btn-primary">DONE Maps</a></tr>
+        </td>
+        <div id="t" ><li>lista to do</li></div>
+        <div id="e" ><li>lista edit</li></div>
+        <div id="d" ><li>lista done</li></div>
+      </table>
+    </div>
+
+  </section>
+
+  <div *ngIf="userService.isTeacher()">
+    <a class="boton" [routerLink]="['/list']" class="btn btn-primary">Ongoing Maps</a>
+    <a class="f" [routerLink]="['/toDoMaps']" class="btn btn-primary">To do Maps</a>
+    <a class="g" [routerLink]="['/doneMaps']" class="btn btn-primary">Done Maps</a>
+  </div>
+
 </body>
 
 </html>

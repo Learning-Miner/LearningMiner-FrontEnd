@@ -30,11 +30,11 @@ table {
     background-color: #fff0f0;
     border-style: solid;
     border-color: #fde7e7;
-    overflow: auto;
+    overflow-y: auto;
 }
 
 h2 {
-    width: 40%;
+    width: 100%;
     margin-left: 3cm;
     margin-right: 3cm;
     font-size: 1.5cm;
