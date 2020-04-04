@@ -14,11 +14,19 @@
 </head>
 
 <body>
-  <app-navbar></app-navbar>
-  <h1>Menú principal</h1>
+<app-navbar></app-navbar>
+<h1>Main menu</h1>
+<div *ngIf="userService.isStudent()">
   <a id="e" [routerLink]="['/list']" class="btn btn-primary">Editing Maps</a>
   <a id="f" [routerLink]="['/toDoMaps']" class="btn btn-primary">To do Maps</a>
   <a id="g" [routerLink]="['/doneMaps']" class="btn btn-primary">Done Maps</a>
+</div>
+
+<div *ngIf="userService.isTeacher()">
+  <a class="boton" [routerLink]="['/list']" class="btn btn-primary">Ongoing Maps</a>
+  <a class="f" [routerLink]="['/toDoMaps']" class="btn btn-primary">To do Maps</a>
+  <a class="g" [routerLink]="['/doneMaps']" class="btn btn-primary">Done Maps</a>
+</div>
 </body>
 
 </html>
