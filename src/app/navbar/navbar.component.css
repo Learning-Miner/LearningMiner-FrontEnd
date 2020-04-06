@@ -1,0 +1,38 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f6e3a0;
+    font-family: "Montserrat";
+}
+
+li {
+    float: center;
+    text-align: center;
+    font-size: 3cm;
+    user-select: none;
+    font-weight: bold;
+    color: #306a76;
+}
+
+li button {
+    background-image: url(learningMiner.jpg);
+    background-attachment: fixed;
+    color: #306a76;
+    border-color: #ecc63c;
+    border-width: 2px;
+    text-align: center;
+    display: block;
+    margin-top: 0;
+    position: absolute;
+    right: 1%;
+    top: 1%;
+    z-index: 2;
+    font-size: 1.8cm;
+}
+
+button:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
