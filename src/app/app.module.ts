@@ -8,40 +8,11 @@ import { AppComponent } from './app.component';
 import { ConceptMapModule } from './conceptmap-module/conceptmap.module';
 import { EditorComponent } from './editor/editor.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { LoginComponent } from './login/login.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { UserService } from './services/user.service';
-import { CookieService } from 'ngx-cookie-service';
-import { AuthGuard } from './auth.guard';
-import { TokenInterceptorService } from './services/token-interceptor.service';
-import { RegisterComponent } from './register/register.component';
-import { ListMapsComponent } from './list-maps/list-maps.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { StartMenuComponent } from './start-menu/start-menu.component';
-import { DoneMapsComponent } from './done-maps/done-maps.component';
-import { IndividualReportComponent } from './individual-report/individual-report.component';
-import { GroupReportComponent } from './group-report/group-report.component';
-import { GuidelinesComponent } from './guidelines/guidelines.component';
-import { MainMenuComponent } from './main-menu/main-menu.component';
-import { ToDoMapsComponent } from './to-do-maps/to-do-maps.component';
-import {ChartsModule} from 'ng2-charts-x';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditorComponent,
-    LoginComponent,
-    RegisterComponent,
-    ListMapsComponent,
-    NavbarComponent,
-    StartMenuComponent,
-    DoneMapsComponent,
-    IndividualReportComponent,
-    GroupReportComponent,
-    GuidelinesComponent,
-    MainMenuComponent,
-    ToDoMapsComponent,
+    EditorComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -49,22 +20,9 @@ import {ChartsModule} from 'ng2-charts-x';
     MenubarModule,
     DialogModule,
     ConceptMapModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    ChartsModule
+    AppRoutingModule
   ],
-  providers: [
-    UserService,
-    CookieService,
-    AuthGuard,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptorService,
-      multi: true
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

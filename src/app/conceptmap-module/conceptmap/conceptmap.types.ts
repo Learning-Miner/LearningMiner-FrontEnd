@@ -119,7 +119,7 @@ export class ConceptMap {
     }
 
     for (const p of map.propositions) {
-      propositions.add(new Proposition(p.text, lookup[p.frm], lookup[p.to]));
+      propositions.add(new Proposition(p.text, lookup[p.from], lookup[p.to]));
     }
 
     this.concepts = concepts;
