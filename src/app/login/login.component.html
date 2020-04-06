@@ -22,23 +22,15 @@
                 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="text" formControlName="email" class="form-control"
-                            [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                            <div *ngIf="f.email.errors.required" >The email is required</div>
-                        </div>
+                        <input type="text" formControlName="email" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" formControlName="password" class="form-control"
-                            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                            <div *ngIf="f.password.errors.required">The password is required</div>
-                        </div>
+                        <input type="password" formControlName="password" class="form-control" />
                     </div>
                     <div class="form-group" style="text-align: center;">
-                        <button [disabled]="loading" class="btn btn-primary" class="b   ">
-                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        <button class="btn btn-primary" class="b   ">
+                            <span class="spinner-border spinner-border-sm mr-1"></span>
                             Log In
                         </button>
                     </div>

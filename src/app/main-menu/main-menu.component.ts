@@ -9,7 +9,7 @@ import {UserService} from '../services/user.service';
 export class MainMenuComponent implements OnInit {
 
   constructor(
-    private userService: UserService
+    public userService: UserService
   ) { }
 
   ngOnInit() {
