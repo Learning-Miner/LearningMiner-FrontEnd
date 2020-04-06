@@ -1,19 +1,26 @@
-import { Component, HostListener, ViewChild, DoCheck } from '@angular/core';
+import {Component, HostListener, ViewChild, DoCheck, OnInit} from '@angular/core';
 import { MenuItem } from 'primeng/primeng';
 
 import { ConceptMapComponent } from '../conceptmap-module/conceptmap/conceptmap.component';
 
 import { KeyCombination } from '../conceptmap-module/utils/utils';
 import { ie } from '../etc';
+import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cm-editor',
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.css']
 })
-export class EditorComponent implements DoCheck {
+export class EditorComponent implements OnInit, DoCheck {
 
   @ViewChild(ConceptMapComponent) cmap: ConceptMapComponent;
+
+  constructor (
+    private userService: UserService,
+    private router: Router
+  ) {}
 
   ctrlA = new KeyCombination('A', [KeyCombination.modifierKey.ctrl]);
   ctrlS = new KeyCombination('S', [KeyCombination.modifierKey.ctrl]);
@@ -45,7 +52,8 @@ export class EditorComponent implements DoCheck {
             command: () => this.cmap.deleteSelected()
           }
         ]
-      }
+      },
+
     ];
 
   importTool = {
@@ -66,6 +74,7 @@ export class EditorComponent implements DoCheck {
     loadFile: () => {
       try {
         this.cmap.import(this.importTool._file);
+        // console.log(this.importTool._file);
         this.importTool.visible = false;
         this.importTool._file = undefined;
       } catch (err) {
@@ -125,6 +134,24 @@ export class EditorComponent implements DoCheck {
     if (this.ctrlO.match(event)) {
       this.importTool.visible = true;
       event.preventDefault();
+    }
+  }
+
+  logout() {
+    if (this.userService.loggedIn()) {
+      this.userService.logout();
+    }
+  }
+
+  ngOnInit(): void {
+    if (!!localStorage.getItem('mapId')) {
+      this.userService.getMap(localStorage.getItem('mapId')).subscribe(res => {
+        this.importTool._file = JSON.stringify(res);
+        // console.log(this.importTool._file);
+        this.importTool.loadFile();
+      }, err => {
+        console.log(err);
+      });
     }
   }
 
