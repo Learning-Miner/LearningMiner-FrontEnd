@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'cm-main-menu',
@@ -8,9 +7,7 @@ import {UserService} from '../services/user.service';
 })
 export class MainMenuComponent implements OnInit {
 
-  constructor(
-    private userService: UserService
-  ) { }
+  constructor() { }
 
   ngOnInit() {
   }

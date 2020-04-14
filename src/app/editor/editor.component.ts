@@ -53,10 +53,7 @@ export class EditorComponent implements OnInit, DoCheck {
           }
         ]
       },
-      {
-        label: 'Logout',
-        command: () => this.logout()
-      }
+
     ];
 
   importTool = {

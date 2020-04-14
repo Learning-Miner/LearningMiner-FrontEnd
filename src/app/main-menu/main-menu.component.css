@@ -1,112 +1,132 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Montserrat";
-  background: url(lm.jpg);
-  background-size: cover;
-  height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat";
+    background-color: #fcfdfe;
+}
+
+#pantalla-dividida {
+    display: flex;
+}
+
+.izquierda {
+    height: 90vh;
+    width: 50%;
+}
+
+.recomendacion {
+    margin: 8%;
+    height: 73vh;
+    background-color: #f6e8da;
+    border-style: ridge;
+    border-color: #eee8eb;
 }
 
 h1 {
-  font-size: 2cm;
-  width: 60%;
-  margin-top: 3%;
-  margin-left: 20%;
-  background-color: #e7f3f7;
-  color: #306a76;
-  text-align: center;
-  padding: 0.5cm;
-  border-style: outset;
-  border-color: #d5f1fa;
-  font-weight: bolder;
-  user-select: none;
+    font-family: "Lora";
+    font-size: 125px;
+    padding-top: 3%;
+    padding-bottom: 5%;
+    color: #306a76;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
 }
 
-table {
-  width: 60%;
-  margin-top: 2%;
-  margin-left: 20%;
-  border-collapse: collapse;
-  background-color: #fff0f0;
-  border-style: solid;
-  border-color: #fde7e7;
-  overflow: auto;
+p {
+    font-size: 60px;
+    color: #1d3e44;
+    text-align: justify;
+    padding-left: 4.5%;
+    padding-right: 4.5%;
+    padding-bottom: 5%;
 }
 
 h2 {
-  width: 40%;
-  margin-left: 3cm;
-  margin-right: 3cm;
-  font-size: 1.5cm;
-  font-weight: bolder;
+    font-family: "Lora";
+    font-size: 95px;
+    width: 150%;
+    margin-top: 8vh;
+    margin-left: 9vh;
+    background-color: #e7f3f7;
+    color: #306a76;
+    text-align: center;
+    padding: 0.5cm;
+    border-style: outset;
+    border-color: #eee8eb;
+    font-weight: bolder;
+    user-select: none;
 }
 
-tr td {
-  color: #306a76;
-  padding: 8px;
-  width: 40%;
+table {
+    width: 126%;
+    height: 61vh;
+    margin-top: 10%;
+    margin-left: 30%;
+    border-style: ridge;
+    border-color: #f6e8da;
 }
 
-.boton {
-  cursor: pointer;
-  background-color: #f6e3a0;
-  padding: 0.5cm 1cm;
-  margin-left: 40cm;
-  font-size: 1.3cm;
-  color: #306a76;
+tr a {
+    color: #306a76;
+    padding: 8px;
+    font-size: 70px;
+    background-color: #f6e3a0;
+    border-radius: 12px;
+    margin: 38%;
+    width: 120%;
+}
+
+tr a:hover {
+    font-weight: bolder;
+}
+
+#t {
+    width: 16%;
+    height: 15%;
+    position: absolute;
+    left: 74%;
+    top: 30%;
+    z-index: 2;
+    font-size: 1.35cm;
+    border-style: ridge;
+    border-color: #f6e8da;
+    color: #1d3e44;
+    overflow-y: auto;
+    user-select: none;
 }
 
 #e {
-  cursor: pointer;
-  background-color: #f6e3a0;
-  padding: 0.5cm 1cm;
-  margin-left: 40cm;
-  font-size: 1.3cm;
-  color: #306a76;
-}
-
-#f {
-  cursor: pointer;
-  background-color: #f6e3a0;
-  padding: 0.5cm 1cm;
-  margin-left: 40cm;
-  font-size: 1.3cm;
-  color: #306a76;
-}
-
-#g {
-  cursor: pointer;
-  background-color: #f6e3a0;
-  padding: 0.5cm 1cm;
-  margin-left: 40cm;
-  font-size: 1.3cm;
-  color: #306a76;
+    width: 16%;
+    height: 15%;
+    position: absolute;
+    left: 74%;
+    top: 50%;
+    z-index: 2;
+    font-size: 1.35cm;
+    border-style: ridge;
+    border-color: #f6e8da;
+    color: #1d3e44;
+    overflow-y: auto;
+    user-select: none;
 }
 
 #d {
-  cursor: pointer;
-  background-color: #f6e3a0;
-  padding: 0.5cm 1cm;
-  margin-left: 4cm;
-  font-size: 1.3cm;
+    width: 16%;
+    height: 15%;
+    position: absolute;
+    left: 74%;
+    top: 70%;
+    z-index: 2;
+    font-size: 1.35cm;
+    border-style: ridge;
+    border-color: #f6e8da;
+    color: #1d3e44;
+    overflow-y: auto;
+    user-select: none;
 }
 
-#e:hover {
-  font-weight: bolder;
-}
-
-#f:hover {
-  font-weight: bolder;
-}
-
-#g:hover {
-  font-weight: bolder;
-}
-
-#d:hover {
-  font-weight: bolder;
-}
-
-tr:hover {
-  background-color: #e7d8d0;
+li {
+    list-style-type: circle;
+    padding-left: 2%;
 }
