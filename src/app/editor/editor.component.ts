@@ -53,6 +53,10 @@ export class EditorComponent implements OnInit, DoCheck {
           }
         ]
       },
+      {
+        label: 'Save',
+        command: () => this.updateFile()
+      },
 
     ];
 
@@ -141,6 +145,16 @@ export class EditorComponent implements OnInit, DoCheck {
     if (this.userService.loggedIn()) {
       this.userService.logout();
     }
+  }
+
+  updateFile() {
+    console.log(this.cmap.export());
+    this.userService.updateMap(localStorage.getItem('mapId'), this.cmap.export())
+      .subscribe(res => {
+        console.log(res);
+      }, err => {
+        console.log(err);
+      });
   }
 
   ngOnInit(): void {

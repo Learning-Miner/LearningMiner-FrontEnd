@@ -19,7 +19,6 @@ export class ToDoMapsComponent implements OnInit {
       console.log('Mapas');
       console.log(this.maps);
       this.mapsTemporal = this.maps.slice();
-      console.log(this.mapsTemporal);
     }, error => {
       console.log(error);
     });

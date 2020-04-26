@@ -25,8 +25,9 @@ export class DoneMapsComponent implements OnInit {
     });
   }
 
-  click(mapId) {
+  click(mapId, baseId) {
     localStorage.setItem('mapId', mapId);
+    localStorage.setItem('baseId', baseId);
   }
 
   remove(mapId) {

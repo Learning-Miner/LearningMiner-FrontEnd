@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat";
+  background: url(lm.jpg);
+  background-color: #fcfdfe;
+}
+
+h1 {
+  font-size: 2cm;
+  width: 60%;
+  margin-top: 3%;
+  margin-left: 20%;
+  background-color: #e7f3f7;
+  color: #306a76;
+  text-align: center;
+  padding: 0.5cm;
+  border-style: outset;
+  border-color: #d5f1fa;
+  font-weight: bolder;
+  user-select: none;
+}
+
+input {
+  width: 3000px;
+  height: 100px;
+  font-size: 1.5cm;
+}
+
+label {
+  font-size: 2cm;
+}
+
+button {
+  font-size: 1.5cm;
+}

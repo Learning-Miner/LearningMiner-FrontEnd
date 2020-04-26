@@ -15,16 +15,13 @@
 
 <body>
 <app-navbar></app-navbar>
-<h1>Conceptual Maps</h1>
-<table *ngFor="let map of maps">
+<h1>Closed activities</h1>
+<table *ngFor="let activity of activities">
   <tr>
-    <td><h2>{{map.title}}</h2></td>
-    <td ><a id="e" [routerLink]="['/editor', map.id]" class="btn btn-primary" (click)="click(map.id, map.baseId)"> See map</a></td>
-    <td ><a id= "d" [routerLink]="['/individual-report', map.baseId]" class="btn btn-primary">See Invidual Report</a></td>
+    <td><h2>{{activity.title}}</h2></td>
+    <td ><a id="e" class="btn btn-primary">Ver informe grupal</a></td>
+    <td ><a id= "d" class="btn btn-primary">Ver informes individuales</a></td>
   </tr>
-
 </table>
-
 </body>
 </html>
-

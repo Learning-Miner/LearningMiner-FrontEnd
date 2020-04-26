@@ -78,13 +78,15 @@ export class UserService {
   }
 
   getMaps(query: string): Observable<Map[]> {
-    const headers = new HttpHeaders();
-    headers.append('token', localStorage.getItem('token'));
-    return this.http.post<Map[]>(`${this.USER_END_POINT}cpt-map/filter`, {query}, {headers});
+    return this.http.post<Map[]>(`${this.USER_END_POINT}cpt-map/filter`, {query});
   }
 
   getMap(mapId: string): Observable<Map> {
     return this.http.get<Map>(`${this.USER_END_POINT}cpt-map/${mapId}`);
+  }
+
+  updateMap(mapId: string, newMap) {
+    return this.http.put(`${this.USER_END_POINT}cpt-map/${mapId}`, newMap);
   }
 
   deleteMap (mapId: string): Observable<Map> {
