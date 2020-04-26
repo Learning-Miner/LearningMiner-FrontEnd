@@ -50,7 +50,7 @@ export class HandleComponent implements DoCheck, OnChanges {
   }
 
   createProposition(from: Concept, to: Concept) {
-    if (!Array.from(this.cmap.propositions).some(p => p.from === from && p.to === to || p.from === to && p.to === from)) {
+    if (!Array.from(this.cmap.propositions).some(p => p.frm === from && p.to === to || p.frm === to && p.to === from)) {
       this.cmap.propositions.add(new Proposition('', from, to));
     }
   }

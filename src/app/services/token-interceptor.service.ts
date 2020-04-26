@@ -3,7 +3,7 @@ import { HttpInterceptor } from '@angular/common/http';
 import { UserService } from './user.service';
 
 @Injectable()
-export class TokenInterceptorService implements HttpInterceptor{
+export class TokenInterceptorService implements HttpInterceptor {
 
   constructor(private userService: UserService) { }
 

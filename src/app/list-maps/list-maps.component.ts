@@ -17,6 +17,7 @@ export class ListMapsComponent implements OnInit {
   ngOnInit() {
     this.userService.getMaps('edit').subscribe(res => {
       this.maps = res;
+      console.log(res);
       console.log('Mapas');
       console.log(this.maps);
       this.mapsTemporal = this.maps.slice();

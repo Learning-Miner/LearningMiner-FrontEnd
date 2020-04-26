@@ -20,12 +20,12 @@ export class Concept {
  */
 export class Proposition {
   text: string;
-  from: Concept;
+  frm: Concept;
   to: Concept;
 
   constructor(text: string, from: Concept, to: Concept) {
     this.text = text;
-    this.from = from;
+    this.frm = from;
     this.to = to;
   }
 }
@@ -61,7 +61,7 @@ export class ConceptMap {
    * Remove a concept and all propositions that links to and from it.
    */
   removeConcept(concept: Concept) {
-    for (const prop of Array.from(this.propositions).filter(p => p.from === concept || p.to === concept)) {
+    for (const prop of Array.from(this.propositions).filter(p => p.frm === concept || p.to === concept)) {
       this.removeProposition(prop);
     }
     this.concepts.delete(concept);
@@ -93,7 +93,7 @@ export class ConceptMap {
     this.propositions.forEach(p => {
       map.propositions.push({
         text: p.text,
-        from: conceptIDs.get(p.from),
+        frm: conceptIDs.get(p.frm),
         to: conceptIDs.get(p.to)
       });
     });
