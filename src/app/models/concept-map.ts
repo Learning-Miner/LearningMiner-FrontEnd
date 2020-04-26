@@ -23,6 +23,7 @@ export class ConceptMap {
 }
 
 export class Map {
+  id: string;
   baseId: string;
   title: string;
   string: string;

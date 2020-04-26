@@ -77,6 +77,11 @@ export class UserService {
     return this.http.post<User>(`${this.USER_END_POINT}signup`, user);
   }
 
+  createMap(title: string) {
+    const body = '"isBase": false, "title": ' + title + ', "concepts": [], "propositions": []';
+    return this.http.post(`${this.USER_END_POINT}cpt-map/`, {body});
+  }
+
   getMaps(query: string): Observable<Map[]> {
     return this.http.post<Map[]>(`${this.USER_END_POINT}cpt-map/filter`, {query});
   }
@@ -86,7 +91,7 @@ export class UserService {
   }
 
   updateMap(mapId: string, newMap) {
-    return this.http.put(`${this.USER_END_POINT}cpt-map/${mapId}`, newMap);
+    return this.http.put(`${this.USER_END_POINT}cpt-map/${mapId}`, {newMap});
   }
 
   deleteMap (mapId: string): Observable<Map> {

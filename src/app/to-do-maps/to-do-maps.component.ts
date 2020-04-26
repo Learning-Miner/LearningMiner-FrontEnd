@@ -24,8 +24,12 @@ export class ToDoMapsComponent implements OnInit {
     });
   }
 
-  click(mapId) {
-    localStorage.setItem('mapId', mapId);
+  click(title: string) {
+    this.userService.createMap(title).subscribe(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
   }
 
   remove(mapId) {
