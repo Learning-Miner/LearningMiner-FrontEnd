@@ -97,4 +97,18 @@ export class UserService {
   deleteMap (mapId: string): Observable<Map> {
     return this.http.delete<Map>(`${this.USER_END_POINT}cpt-map/${mapId}`);
   }
+
+  isStudent() {
+    if (localStorage.getItem('rol') === 'Student') {
+      return true;
+    }
+    return false;
+  }
+
+  isTeacher() {
+    if (localStorage.getItem('rol') === 'Teacher') {
+      return true;
+    }
+    return false;
+  }
 }
