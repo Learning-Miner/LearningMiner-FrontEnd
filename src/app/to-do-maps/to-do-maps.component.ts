@@ -9,8 +9,8 @@ import {UserService} from '../services/user.service';
 })
 export class ToDoMapsComponent implements OnInit {
 
-  maps: Map[];
-  mapsTemporal: Map[];
+  maps: Map[] = [];
+  mapsTemporal: Map[] = [];
   constructor(private userService: UserService) { }
 
   ngOnInit() {
@@ -24,8 +24,8 @@ export class ToDoMapsComponent implements OnInit {
     });
   }
 
-  click(title: string) {
-    this.userService.createMap(title).subscribe(res => {
+  click(title: string, baseId) {
+    this.userService.createMap(title, baseId).subscribe(res => {
       console.log(res);
     }, err => {
       console.log(err);
