@@ -22,13 +22,13 @@ import {StartMenuComponent} from './start-menu/start-menu.component';
 import {DoneMapsComponent} from './done-maps/done-maps.component';
 import {IndividualReportComponent} from './individual-report/individual-report.component';
 import {GroupReportComponent} from './group-report/group-report.component';
-import {GuidelinesComponent} from './guidelines/guidelines.component';
 import {MainMenuComponent} from './main-menu/main-menu.component';
 import {ToDoMapsComponent} from './to-do-maps/to-do-maps.component';
 import {ChartsModule} from 'ng2-charts-x';
 import {NewAssignmentComponent} from './new-assignment/new-assignment.component';
-import { OngoingActivitiesComponent } from './ongoing-activities/ongoing-activities.component';
-import { ClosedActivitiesComponent } from './closed-activities/closed-activities.component';
+import {OngoingActivitiesComponent} from './ongoing-activities/ongoing-activities.component';
+import {ClosedActivitiesComponent} from './closed-activities/closed-activities.component';
+import { ActivityDetailComponent } from './activity-detail/activity-detail.component';
 
 @NgModule({
   declarations: [
@@ -42,25 +42,25 @@ import { ClosedActivitiesComponent } from './closed-activities/closed-activities
     DoneMapsComponent,
     IndividualReportComponent,
     GroupReportComponent,
-    GuidelinesComponent,
     MainMenuComponent,
     ToDoMapsComponent,
     NewAssignmentComponent,
     OngoingActivitiesComponent,
     ClosedActivitiesComponent,
+    ActivityDetailComponent,
   ],
-    imports: [
-        BrowserAnimationsModule,
-        ButtonModule,
-        MenubarModule,
-        DialogModule,
-        ConceptMapModule,
-        AppRoutingModule,
-        FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        ChartsModule,
-    ],
+  imports: [
+    BrowserAnimationsModule,
+    ButtonModule,
+    MenubarModule,
+    DialogModule,
+    ConceptMapModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ChartsModule,
+  ],
   providers: [
     UserService,
     CookieService,

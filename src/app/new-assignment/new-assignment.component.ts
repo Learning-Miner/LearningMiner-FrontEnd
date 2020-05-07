@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UserService} from '../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'cm-new-assignment',
@@ -12,8 +14,11 @@ export class NewAssignmentComponent implements OnInit {
   activityForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
-  ) { }
+    private formBuilder: FormBuilder,
+    private service: UserService,
+    private router: Router
+  ) {
+  }
 
   ngOnInit() {
     this.buildActivityForm();
@@ -24,7 +29,6 @@ export class NewAssignmentComponent implements OnInit {
       title: ['', [Validators.required]],
       text: ['', [Validators.required]],
       closureDate: ['', [Validators.required]],
-      keywords: ['', [Validators.required]]
     });
   }
 
@@ -39,8 +43,19 @@ export class NewAssignmentComponent implements OnInit {
   }
 
   addActivity() {
-    console.log(this.keywordsArray);
+    /*console.log(this.keywordsArray);
     this.activityForm.get('keywords').setValue(this.keywordsArray);
-    console.log(this.activityForm);
+    console.log(this.activityForm);*/
+    const data = {
+      'title': this.activityForm.get('title').value,
+      'text': this.activityForm.get('text').value,
+      'dateClose': this.activityForm.get('closureDate').value
+    };
+    this.service.createActivity(data).subscribe(res => {
+      console.log(res);
+      this.router.navigate(['/activity/' + res.act_id]);
+    }, err => {
+      console.log(err);
+    });
   }
 }

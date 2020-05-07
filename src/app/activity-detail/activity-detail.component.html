@@ -19,20 +19,29 @@
 <body>
 <app-navbar></app-navbar>
 
-<h1>New activity</h1>
-<form [formGroup]="activityForm">
-  <label>Title</label>
+<h1>Activity details</h1>
+<br/>
+<div *ngIf="activity">
+  <label><b>Title: </b>{{activity.Title}}</label>
   <br/>
-  <input type="text" formControlName="title"/>
+  <label><b>End Date: </b>{{activity.dateClose}}</label>
   <br/>
-  <label>Text</label>
+  <label><b>Type a keyword</b></label>
   <br/>
-  <textarea formControlName="text"></textarea>
+  <input type="text" (change)="addKeyword($event)"/>
+  <button class="btn">Add</button>
   <br/>
-  <label>Closure date</label>
+  <label><b>Keywords</b></label>
   <br/>
-  <input type="date" formControlName="closureDate"/>
+  <section *ngFor="let keyword of keywordsArray; let i = index">
+    <button class="remove" (click)="removeKeyword(i)">-</button>
+    <label>{{keyword}}</label>
+  </section>
   <br/><br/>
-  <button (click)="addActivity()">Add activity</button>
-</form>
+  <button class="options" (click)="goBaseMap()">View base map</button>
+  <button class="options" routerLink="/ongoingActivities">View ongoing activities</button>
+  <div align="center">
+    <button class="save" (click)="updateActivity()">Update activity</button>
+  </div>
+</div>
 </body>

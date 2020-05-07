@@ -17,14 +17,18 @@
 <app-navbar></app-navbar>
 <h1>Reporte individual</h1>
 
-<div class="chart-wrapper">
-  <canvas baseChart
-          [datasets]="barChartData"
-          [labels]="barChartLabels"
-          [plugins]="barChartPlugins"
-          [legend]="barChartLegend"
-          [chartType]="barChartType">
-  </canvas>
+<div>
+  <div style="display: block">
+    <canvas baseChart
+            [height]="1000"
+            [width]="1000"
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+    </canvas>
+  </div>
 </div>
 
 </body>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../services/user.service';
 
 @Component({
@@ -12,16 +12,19 @@ export class ClosedActivitiesComponent implements OnInit {
 
   constructor(
     public service: UserService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.service.getActivities('closed')
       .subscribe(res => {
-        this.activities = res;
-        console.log(this.activities);
+        if (!res.Message) {
+          this.activities = res;
+          console.log(this.activities);
+        }
       }, err => {
         console.log(err);
-    });
+      });
   }
 
 }

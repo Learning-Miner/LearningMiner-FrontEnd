@@ -27,4 +27,5 @@ export class Map {
   baseId: string;
   title: string;
   string: string;
+  Message: string;
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from '../services/user.service';
 import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
 import {Label} from 'ng2-charts';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'cm-individual-report',
@@ -10,29 +11,62 @@ import {Label} from 'ng2-charts';
 })
 export class IndividualReportComponent implements OnInit {
 
-  barChartOptions: ChartOptions = {
-    responsive: true,
+  baseId = '';
+  public barChartOptions = {
+    scaleShowVerticalLines: true,
+    responsive: false,
+    legend: {
+      labels: {
+        fontSize: 50
+      }
+    },
+    scales: {
+      yAxes: [
+        {
+          display: true,
+          ticks: {
+            fontSize: 50
+          }
+        }
+      ],
+      xAxes: [
+        {
+          display: true,
+          ticks: {
+            fontSize: 50
+          }
+        }
+      ]
+    }
   };
-  barChartLabels: Label[] = [];
-  barChartType: ChartType = 'bar';
-  barChartLegend = true;
-  barChartPlugins = [];
-
-  barChartData: ChartDataSets[] = [];
+  public barChartLabels = [];
+  public barChartType = 'bar';
+  public barChartLegend = true;
+  public barChartData = [];
 
   constructor(
-    private service: UserService
+    private service: UserService,
+    private route: ActivatedRoute
   ) {
   }
 
   ngOnInit() {
-    this.service.getStudentReportStudent().subscribe(res => {
-      console.log(res[0]);
-      this.barChartLabels = res[0].topic_distribution.topic;
-      this.barChartPlugins = [{data: res[0].topic_distribution.importances, label: 'Topic Distribution'}];
-    }, err => {
-      console.log(err);
-    });
+    this.baseId = this.route.snapshot.params.baseId;
+    if (localStorage.getItem('rol') === 'Student') {
+      this.service.getStudentReportStudent(this.baseId).subscribe(res => {
+        this.barChartLabels = res[0].topic_distribution.topic;
+        this.barChartData = [{data: res[0].topic_distribution.importances, label: 'Topic Distribution'}];
+      }, err => {
+        console.log(err);
+      });
+    } else {
+      this.service.getStudentReportTeacher(this.baseId).subscribe(res => {
+        this.barChartLabels = res[0].topic_distribution.topic;
+        this.barChartData = [{data: res[0].topic_distribution.importances, label: 'Topic Distribution'}];
+      }, err => {
+        console.log(err);
+      });
+    }
   }
 
   // events

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Color, Label} from 'ng2-charts';
 import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
+import {UserService} from '../services/user.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'cm-group-report',
@@ -9,46 +11,62 @@ import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
 })
 export class GroupReportComponent implements OnInit {
 
-  barChartOptions: ChartOptions = {
+  baseId = '';
+
+  public bubbleChartOptions: ChartOptions = {
     responsive: true,
+    legend: {
+      labels: {
+        fontSize: 50
+      }
+    },
+    scales: {
+      xAxes: [{
+        ticks: {
+          min: 0,
+          max: 1,
+          fontSize: 50
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: 1,
+          fontSize: 50
+        }
+      }],
+    }
   };
-  barChartLabels: Label[] = ['Apple', 'Banana', 'Kiwifruit', 'Blueberry', 'Orange', 'Grapes'];
-  barChartType: ChartType = 'bar';
-  barChartLegend = true;
-  barChartPlugins = [];
+  public bubbleChartType: ChartType = 'bubble';
+  public bubbleChartLegend = true;
 
-  barChartData: ChartDataSets[] = [
-    { data: [45, 37, 60, 70, 46, 33], label: 'Best Fruits' }
-  ];
-
-  lineChartData: ChartDataSets[] = [
-    { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices' },
-  ];
-
-  lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];
-
-  lineChartOptions = {
-    responsive: true,
-  };
-
-  lineChartColors: Color[] = [
+  public bubbleChartData: ChartDataSets[] = [
     {
-      borderColor: 'black',
-      backgroundColor: 'rgba(255,255,0,0.28)',
+      data: [
+        {x: 0.49, y: 0.49, r: 3},
+        {x: 0.5, y: 1, r: 3},
+        {x: 1, y: 0.5, r: 3},
+        {x: 0.8, y: 0.2, r: 3},
+        {x: 0.5, y: 0, r: 3},
+      ],
+      label: 'Investment Equities',
     },
   ];
 
-  lineChartLegend = true;
-  lineChartPlugins = [];
-  lineChartType = 'line';
+  public bubbleChartColors: Color[] = [
+    {
+      backgroundColor: 'pink'
+    }
+  ];
 
-  public pieChartLabels: string[] = ['Chrome', 'Safari', 'Firefox', 'Internet Explorer', 'Other'];
-  public pieChartData: number[] = [40, 20, 20 , 10, 10];
-  public pieChartType = 'pie';
-
-  constructor() { }
+  constructor(
+    private service: UserService,
+    private route: ActivatedRoute
+  ) {
+  }
 
   ngOnInit() {
+    this.baseId = this.route.snapshot.params.baseId;
   }
 
   // events

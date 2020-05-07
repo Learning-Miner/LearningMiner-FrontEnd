@@ -17,8 +17,10 @@ export class OngoingActivitiesComponent implements OnInit {
   ngOnInit() {
     this.service.getActivities('open')
       .subscribe(res => {
-        this.activities = res;
-        console.log(this.activities);
+        if (!res.Message) {
+          this.activities = res;
+          console.log(this.activities);
+        }
       }, err => {
         console.log(err);
       });

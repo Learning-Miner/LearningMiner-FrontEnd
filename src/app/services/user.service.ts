@@ -89,8 +89,8 @@ export class UserService {
     });
   }
 
-  getMaps(query: string): Observable<Map[]> {
-    return this.http.post<Map[]>(`${this.USER_END_POINT}cpt-map/filter`, {query});
+  getMaps(query: string): Observable<any> {
+    return this.http.post<any>(`${this.USER_END_POINT}cpt-map/filter`, {query});
   }
 
   getMap(mapId: string): Observable<Map> {
@@ -106,26 +106,32 @@ export class UserService {
   }
 
   getGroupReport(baseId) {
-    return this.http.post(`${this.USER_END_POINT}reports/retrieve/${baseId}`,
+    return this.http.post(this.USER_END_POINT + 'reports/retrieve/' + baseId,
       {
         'query': 'group'
       });
   }
 
-  getStudentReportStudent() {
+  getStudentReportStudent(baseId) {
     const query = 'student';
-    return this.http.post('https://learning-miner-rest.herokuapp.com/api/reports/retrieve/5e409782f2b6a1ec4742505e', {query});
+    return this.http.post(this.USER_END_POINT + 'reports/retrieve/' + baseId, {query});
   }
 
-  getStudentReportTeacher() {
-
+  getStudentReportTeacher(baseId) {
+    const query = 'teacher';
+    return this.http.post(this.USER_END_POINT + 'reports/retrieve/' + baseId, {query});
   }
 
   getActivities(query): Observable<any> {
     return this.http.post(this.USER_END_POINT + 'activity/filter', {query});
   }
 
-  getActivity(actId) {
+  createActivity(activity): Observable<any> {
+    console.log(activity);
+    return this.http.post(this.USER_END_POINT + 'activity/create', activity);
+  }
+
+  getActivity(actId): Observable<any> {
     return this.http.get(`${this.USER_END_POINT}activity/${actId}`);
   }
 

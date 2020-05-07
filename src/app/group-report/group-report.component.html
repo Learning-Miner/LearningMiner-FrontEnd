@@ -19,22 +19,11 @@
 
 <div class="chart-wrapper">
   <canvas baseChart
-          [datasets]="barChartData"
-          [labels]="barChartLabels"
-          [options]="barChartOptions"
-          [legend]="barChartLegend"
-          [chartType]="barChartType">
-  </canvas>
-</div>
-
-<div class="chart-wrapper">
-  <canvas baseChart
-          [datasets]="lineChartData"
-          [labels]="lineChartLabels"
-          [options]="lineChartOptions"
-          [colors]="lineChartColors"
-          [legend]="lineChartLegend"
-          [chartType]="lineChartType">
+          [datasets]="bubbleChartData"
+          [options]="bubbleChartOptions"
+          [colors]="bubbleChartColors"
+          [legend]="bubbleChartLegend"
+          [chartType]="bubbleChartType">
   </canvas>
 </div>
 

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Map} from '../models/concept-map';
 import {UserService} from '../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'cm-to-do-maps',
@@ -10,15 +11,20 @@ import {UserService} from '../services/user.service';
 export class ToDoMapsComponent implements OnInit {
 
   maps: Map[] = [];
-  mapsTemporal: Map[] = [];
-  constructor(private userService: UserService) { }
+
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) {
+  }
 
   ngOnInit() {
     this.userService.getMaps('to-do').subscribe(res => {
-      this.maps = res;
-      console.log('Mapas');
-      console.log(this.maps);
-      this.mapsTemporal = this.maps.slice();
+      if (!res.Message) {
+        this.maps = res;
+        console.log('Mapas');
+        console.log(this.maps);
+      }
     }, error => {
       console.log(error);
     });
@@ -27,6 +33,7 @@ export class ToDoMapsComponent implements OnInit {
   click(title: string, baseId) {
     this.userService.createMap(title, baseId).subscribe(res => {
       console.log(res);
+      this.router.navigate(['/editor/' + res.id]);
     }, err => {
       console.log(err);
     });

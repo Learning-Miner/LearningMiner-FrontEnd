@@ -14,6 +14,7 @@ import { ToDoMapsComponent } from './to-do-maps/to-do-maps.component';
 import {NewAssignmentComponent} from './new-assignment/new-assignment.component';
 import {OngoingActivitiesComponent} from './ongoing-activities/ongoing-activities.component';
 import {ClosedActivitiesComponent} from './closed-activities/closed-activities.component';
+import {ActivityDetailComponent} from './activity-detail/activity-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'startMenu', pathMatch: 'full' },
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: 'toDoMaps', component: ToDoMapsComponent, canActivate: [AuthGuard] },
   { path: 'newActivity', component: NewAssignmentComponent, canActivate: [AuthGuard] },
   { path: 'ongoingActivities', component: OngoingActivitiesComponent, canActivate: [AuthGuard] },
-  { path: 'closedActivities', component: ClosedActivitiesComponent, canActivate: [AuthGuard] }
+  { path: 'closedActivities', component: ClosedActivitiesComponent, canActivate: [AuthGuard] },
+  { path: 'activity/:id', component: ActivityDetailComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

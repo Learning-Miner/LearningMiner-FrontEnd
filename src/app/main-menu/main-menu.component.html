@@ -37,17 +37,20 @@
         <tr><a [routerLink]="['/doneMaps']" class="btn btn-primary">DONE Maps</a></tr>
       </td>
       <div id="t">
+        <label *ngIf="pendingMaps.length == 0">User does not have to-do maps</label>
         <section *ngFor="let map of pendingMaps">
           <li>{{map}}</li>
           <br/>
         </section>
       </div>
       <div id="e">
+        <label *ngIf="editingMaps.length == 0">User does not have editing maps</label>
         <section *ngFor="let map of editingMaps">
           <li>{{map}}</li>
         </section>
       </div>
       <div id="d">
+        <label *ngIf="doneMaps.length == 0">User does not have done maps</label>
         <section *ngFor="let map of doneMaps">
           <li>{{map}}</li>
         </section>

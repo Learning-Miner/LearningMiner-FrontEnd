@@ -16,13 +16,15 @@
 <body>
 <app-navbar></app-navbar>
 <h1>Ongoing activities</h1>
-<table *ngFor="let activity of activities">
-  <caption>Ongoing activities</caption>
-  <tr>
-    <td><h2>{{activity.title}}</h2></td>
-    <td ><a id="e" class="btn btn-primary">Ver actividad</a></td>
-    <td ><a id= "d" class="btn btn-primary">Ver informe individual</a></td>
-  </tr>
-</table>
+<label *ngIf="activities.length == 0">User does not have ongoing activities</label>
+<div *ngIf="activities.length > 0">
+  <table *ngFor="let activity of activities">
+    <tr>
+      <td><h2>{{activity.Title}}</h2></td>
+      <td><a id="e" class="btn btn-primary" [routerLink]="['/activity', activity.actId]">Activity details</a></td>
+      <td><a id="d" class="btn btn-primary">Close activity</a></td>
+    </tr>
+  </table>
+</div>
 </body>
 </html>
