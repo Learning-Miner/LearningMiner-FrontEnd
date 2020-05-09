@@ -6,7 +6,7 @@ import { ConceptMapComponent } from '../conceptmap-module/conceptmap/conceptmap.
 import { KeyCombination } from '../conceptmap-module/utils/utils';
 import { ie } from '../etc';
 import { UserService } from '../services/user.service';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'cm-editor',
@@ -19,7 +19,8 @@ export class EditorComponent implements OnInit, DoCheck {
 
   constructor (
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ctrlA = new KeyCombination('A', [KeyCombination.modifierKey.ctrl]);
@@ -56,6 +57,10 @@ export class EditorComponent implements OnInit, DoCheck {
       {
         label: 'Save',
         command: () => this.updateFile()
+      },
+      {
+        label: 'Send Map',
+        command: () => this.sendMap()
       },
 
     ];
@@ -148,10 +153,22 @@ export class EditorComponent implements OnInit, DoCheck {
   }
 
   updateFile() {
-    console.log(this.cmap.export());
-    this.userService.updateMap(localStorage.getItem('mapId'), this.cmap.export())
+    console.log(JSON.parse(this.cmap.export()));
+    const mapId = this.route.snapshot.params.id;
+    this.userService.updateMap(mapId, JSON.parse(this.cmap.export()))
       .subscribe(res => {
         console.log(res);
+      }, err => {
+        console.log(err);
+      });
+  }
+
+  sendMap() {
+    console.log(this.cmap.export());
+    this.userService.sendMap(localStorage.getItem('mapId'))
+      .subscribe(res => {
+        console.log(res);
+        this.router.navigate(['/doneMaps']);
       }, err => {
         console.log(err);
       });

@@ -56,22 +56,12 @@ tr td {
   color: #306a76;
 }
 
-#f {
-  cursor: pointer;
-  background-color: #f6e3a0;
-  padding: 0.5cm 1cm;
-  margin-left: 4cm;
-  font-size: 1.3cm;
-  color: #306a76;
-}
-
 #d {
   cursor: pointer;
   background-color: #f6e3a0;
   padding: 0.5cm 1cm;
   margin-left: 4cm;
   font-size: 1.3cm;
-  color: #306a76;
 }
 
 #e:hover {
@@ -86,11 +76,55 @@ tr:hover {
   background-color: #e7d8d0;
 }
 
+b {
+  font-size: 2cm;
+  color: #306a76;
+}
+
+input {
+  width: 3000px;
+  height: 100px;
+  font-size: 1.5cm;
+}
+
 label {
   font-size: 2cm;
-  text-align: center;
+}
+
+.btn {
+  padding: 8px;
+  font-size: 70px;
   color: #306a76;
-  display: block;
-  vertical-align: center;
-  line-height: 20;
+  font-size: 70px;
+  background-color: #f6e3a0;
+  border-radius: 12px;
+}
+
+.remove {
+  font-size: 70px;
+  color: white;
+  font-size: 70px;
+  background-color: red;
+  border-radius: 12px;
+}
+
+.save {
+  padding: 8px;
+  font-size: 70px;
+  color: #306a76;
+  font-size: 70px;
+  width: 100%;
+  align-content: center;
+  background-color: #f6e3a0;
+  border-radius: 12px;
+}
+
+.options {
+  padding: 8px;
+  font-size: 70px;
+  color: #306a76;
+  font-size: 70px;
+  width: 49.9%;
+  background-color: #f6e3a0;
+  border-radius: 12px;
 }

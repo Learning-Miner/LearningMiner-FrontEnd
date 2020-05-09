@@ -27,6 +27,12 @@ input {
   font-size: 1.5cm;
 }
 
+textarea {
+  width: 3000px;
+  height: 200px;
+  font-size: 1.5cm;
+}
+
 label {
   font-size: 2cm;
 }

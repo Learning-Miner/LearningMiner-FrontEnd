@@ -15,29 +15,29 @@
 
 <body>
 <app-navbar></app-navbar>
-<h1>Reporte individual</h1>
-
-<div style="display: block">
-  <canvas baseChart
-          [data]="pieChartData"
-          [labels]="pieChartLabels"
-          [chartType]="pieChartType"
-          (chartHover)="chartHovered($event)"
-          (chartClick)="chartClicked($event)"></canvas>
+<h1>Individual report</h1>
+<br/>
+<div>
+  <label *ngIf="student"><b>Concepts number: </b>{{student.num_concepts}} concepts</label>
+  <br/>
+  <label *ngIf="student"><b>Similarity: </b>{{student.similarity}}%</label>
+  <br/>
+  <label *ngIf="student"><b>Used time: </b>{{student.time_used}} seconds</label>
+  <div align="center">
+    <label><b>Topic distribution graph</b></label>
+  </div>
+  <div>
+    <canvas baseChart
+            style="height:10%; width: 10%"
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+    </canvas>
+  </div>
+  <label>Explanation</label>
 </div>
 
 </body>
 </html>
-
-
-<!-- <h4 style="text-align:center">Pie Chart For Browser usage of Eduforbetterment.com
-</h4>
-
-<div style="display: block">
-  <canvas baseChart
-          [data]="pieChartData"
-          [labels]="pieChartLabels"
-          [chartType]="pieChartType"
-          (chartHover)="chartHovered($event)"
-          (chartClick)="chartClicked($event)"></canvas>
-</div> -->

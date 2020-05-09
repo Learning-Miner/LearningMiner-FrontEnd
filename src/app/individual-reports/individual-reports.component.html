@@ -15,14 +15,14 @@
 
 <body>
 <app-navbar></app-navbar>
-<h1>Conceptual Maps</h1>
-<label *ngIf="maps.length == 0">User does not have editing maps</label>
-<div *ngIf="maps.length > 0">
-  <table *ngFor="let map of maps">
+<h1>Students list</h1>
+<label *ngIf="students.length == 0">Any student uploaded activity</label>
+<div *ngIf="students.length > 0">
+  <table *ngFor="let s of students">
     <tr>
-      <td><h2>{{map.title}}</h2></td>
-      <td><a id="e" [routerLink]="['/editor', map.id]" class="btn btn-primary" (click)="click(map.id)">Edit</a></td>
-      <td><a id="d" class="btn btn-primary" (click)="remove(map[0])">Delete</a></td>
+      <td><h2>{{s.std_name}}</h2></td>
+      <td></td>
+      <td><a id="d" class="btn btn-primary" [routerLink]="['/individual-report', baseId]" (click)="storeStudentId(s.std_id)">Individual report</a></td>
     </tr>
   </table>
 </div>

@@ -27,23 +27,11 @@
   <br/>
   <label>Text</label>
   <br/>
-  <input type="text" formControlName="text"/>
+  <textarea formControlName="text"></textarea>
   <br/>
   <label>Closure date</label>
   <br/>
   <input type="date" formControlName="closureDate"/>
-  <br/>
-  <label>Type a keyword</label>
-  <br/>
-  <input type="text" (change)="addKeyword($event)"/>
-  <button>Add</button>
-  <br/>
-  <label>Keywords</label>
-  <br/>
-  <section *ngFor="let keyword of keywordsArray; let i = index">
-    <label>{{keyword}}</label>
-    <button (click)="removeKeyword(i)">Remove Keyword</button>
-  </section>
   <br/><br/>
   <button (click)="addActivity()">Add activity</button>
 </form>

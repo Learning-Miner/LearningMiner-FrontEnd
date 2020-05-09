@@ -15,14 +15,14 @@
 
 <body>
 <app-navbar></app-navbar>
-<h1>Conceptual Maps</h1>
-<label *ngIf="maps.length == 0">User does not have editing maps</label>
+<h1>Group maps</h1>
+<label *ngIf="maps.length == 0">There is any group map</label>
 <div *ngIf="maps.length > 0">
-  <table *ngFor="let map of maps">
+  <table *ngFor="let s of maps; let i = index">
     <tr>
-      <td><h2>{{map.title}}</h2></td>
-      <td><a id="e" [routerLink]="['/editor', map.id]" class="btn btn-primary" (click)="click(map.id)">Edit</a></td>
-      <td><a id="d" class="btn btn-primary" (click)="remove(map[0])">Delete</a></td>
+      <td><h2>Map {{i + 1}}</h2></td>
+      <td></td>
+      <td><a id="e" class="btn btn-primary" [routerLink]="['/editor', s._id.$oid]" (click)="storeMap(s._id.$oid)">View map</a></td>
     </tr>
   </table>
 </div>
