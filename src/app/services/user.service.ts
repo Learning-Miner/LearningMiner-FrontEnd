@@ -98,7 +98,16 @@ export class UserService {
   }
 
   updateMap(mapId: string, newMap) {
-    return this.http.put(this.USER_END_POINT + 'cpt-map/' + mapId, newMap);
+    return this.http.put(this.USER_END_POINT + 'cpt-map/' + mapId, {
+      concepts: newMap.concepts,
+      propositions: newMap.propositions
+    });
+  }
+
+  sendMap(mapId: string) {
+    return this.http.put(this.USER_END_POINT + 'cpt-map/' + mapId, {
+      isDone: true
+    });
   }
 
   deleteMap(mapId: string): Observable<Map> {
@@ -117,9 +126,16 @@ export class UserService {
     return this.http.post(this.USER_END_POINT + 'reports/retrieve/' + baseId, {query});
   }
 
-  getStudentReportTeacher(baseId) {
-    const query = 'teacher';
-    return this.http.post(this.USER_END_POINT + 'reports/retrieve/' + baseId, {query});
+  getStudentReportTeacher(baseId, studentId) {
+    const query = 'student';
+    return this.http.post(this.USER_END_POINT + 'reports/retrieve/' + baseId, {
+      query,
+      student_id: studentId
+    });
+  }
+
+  getStudentsReports(baseId): Observable<any> {
+    return this.http.get(this.USER_END_POINT + 'reports/retrieve/' + baseId);
   }
 
   getActivities(query): Observable<any> {
@@ -131,12 +147,31 @@ export class UserService {
     return this.http.post(this.USER_END_POINT + 'activity/create', activity);
   }
 
-  getActivity(actId): Observable<any> {
-    return this.http.get(`${this.USER_END_POINT}activity/${actId}`);
+  getActivityTeacher(actId): Observable<any> {
+    return this.http.post(`${this.USER_END_POINT}activity/${actId}`, {
+      query: 'actId'
+    });
+  }
+
+  getActivityStudent(baseId): Observable<any> {
+    return this.http.post(`${this.USER_END_POINT}activity/${baseId}`, {
+      query: 'baseId'
+    });
   }
 
   updateActivity(actId, activity) {
     return this.http.put(`${this.USER_END_POINT}activity/${actId}`, activity);
+  }
+
+  closeActivity(actId): Observable<any> {
+    return this.http.put(`${this.USER_END_POINT}activity/${actId}` ,
+      {
+        'isClosed': true
+      });
+  }
+
+  createReports(baseId): Observable<any> {
+    return this.http.get(this.USER_END_POINT + 'reports/create/' + baseId);
   }
 
   isStudent() {

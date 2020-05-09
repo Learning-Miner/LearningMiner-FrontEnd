@@ -15,19 +15,30 @@ export class ActivityDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: UserService,
+    public service: UserService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.activityId = this.route.snapshot.params.id;
-    this.service.getActivity(this.activityId).subscribe(res => {
-      console.log(res);
-      this.activity = res;
-      this.keywordsArray = res.key_concepts;
-    }, err => {
-      console.log(err);
-    });
+    if (this.service.isTeacher()) {
+      this.activityId = this.route.snapshot.params.id;
+      this.service.getActivityTeacher(this.activityId).subscribe(res => {
+        console.log(res);
+        this.activity = res;
+        this.keywordsArray = res.key_concepts;
+      }, err => {
+        console.log(err);
+      });
+    } else {
+      this.activityId = this.route.snapshot.params.id;
+      this.service.getActivityStudent(this.activityId).subscribe(res => {
+        console.log(res);
+        this.activity = res;
+        this.keywordsArray = res.key_concepts;
+      }, err => {
+        console.log(err);
+      });
+    }
   }
 
   addKeyword(event: any) {

@@ -15,15 +15,14 @@
 
 <body>
 <app-navbar></app-navbar>
-<h1>Closed activities</h1>
-<label *ngIf="activities.length == 0">User does not have closed activities</label>
-<div *ngIf="activities.length > 0">
-  <table *ngFor="let activity of activities">
+<h1>Students list</h1>
+<label *ngIf="students.length == 0">Any student uploaded activity</label>
+<div *ngIf="students.length > 0">
+  <table *ngFor="let s of students">
     <tr>
-      <td><h2>{{activity.Title}}</h2></td>
-      <td><a id="e" class="btn btn-primary" [routerLink]="['/groupMaps', activity.baseId]">Group maps</a></td>
-      <td><a id="f" class="btn btn-primary" [routerLink]="['/group-report', activity.baseId]">Group report</a></td>
-      <td><a id="d" class="btn btn-primary" [routerLink]="['/individualReports', activity.baseId]">Individual reports</a></td>
+      <td><h2>{{s.std_name}}</h2></td>
+      <td></td>
+      <td><a id="d" class="btn btn-primary" [routerLink]="['/individual-report', baseId]" (click)="storeStudentId(s.std_id)">Individual report</a></td>
     </tr>
   </table>
 </div>

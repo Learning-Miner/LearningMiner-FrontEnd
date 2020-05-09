@@ -26,22 +26,22 @@
   <br/>
   <label><b>End Date: </b>{{activity.dateClose}}</label>
   <br/>
-  <label><b>Type a keyword</b></label>
+  <label *ngIf="service.isTeacher()"><b>Type a keyword</b></label>
   <br/>
-  <input type="text" (change)="addKeyword($event)"/>
-  <button class="btn">Add</button>
+  <input type="text" (change)="addKeyword($event)" *ngIf="service.isTeacher()"/>
+  <button class="btn" *ngIf="service.isTeacher()">Add</button>
   <br/>
   <label><b>Keywords</b></label>
   <br/>
   <section *ngFor="let keyword of keywordsArray; let i = index">
-    <button class="remove" (click)="removeKeyword(i)">-</button>
+    <button *ngIf="service.isTeacher()" class="remove" (click)="removeKeyword(i)">-</button>
     <label>{{keyword}}</label>
   </section>
   <br/><br/>
-  <button class="options" (click)="goBaseMap()">View base map</button>
-  <button class="options" routerLink="/ongoingActivities">View ongoing activities</button>
+  <button class="options" *ngIf="service.isTeacher()" (click)="goBaseMap()">View base map</button>
+  <button class="options" routerLink="/ongoingActivities" *ngIf="service.isTeacher()">View ongoing activities</button>
   <div align="center">
-    <button class="save" (click)="updateActivity()">Update activity</button>
+    <button class="save" (click)="updateActivity()" *ngIf="service.isTeacher()">Update activity</button>
   </div>
 </div>
 </body>

@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import {ButtonModule, MenubarModule, DialogModule} from 'primeng/primeng';
+import {ButtonModule, MenubarModule, DialogModule, ChartModule} from 'primeng/primeng';
 
 import {AppComponent} from './app.component';
 
@@ -29,6 +29,8 @@ import {NewAssignmentComponent} from './new-assignment/new-assignment.component'
 import {OngoingActivitiesComponent} from './ongoing-activities/ongoing-activities.component';
 import {ClosedActivitiesComponent} from './closed-activities/closed-activities.component';
 import { ActivityDetailComponent } from './activity-detail/activity-detail.component';
+import { IndividualReportsComponent } from './individual-reports/individual-reports.component';
+import { GroupMapsComponent } from './group-maps/group-maps.component';
 
 @NgModule({
   declarations: [
@@ -48,19 +50,22 @@ import { ActivityDetailComponent } from './activity-detail/activity-detail.compo
     OngoingActivitiesComponent,
     ClosedActivitiesComponent,
     ActivityDetailComponent,
+    IndividualReportsComponent,
+    GroupMapsComponent,
   ],
-  imports: [
-    BrowserAnimationsModule,
-    ButtonModule,
-    MenubarModule,
-    DialogModule,
-    ConceptMapModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    ChartsModule,
-  ],
+    imports: [
+        BrowserAnimationsModule,
+        ButtonModule,
+        MenubarModule,
+        DialogModule,
+        ConceptMapModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        ChartsModule,
+        ChartModule,
+    ],
   providers: [
     UserService,
     CookieService,

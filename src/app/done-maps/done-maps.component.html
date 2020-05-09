@@ -21,9 +21,9 @@
   <table *ngFor="let map of maps">
     <tr>
       <td><h2>{{map.title}}</h2></td>
-      <td><a id="e" [routerLink]="['/editor', map.id]" class="btn btn-primary" (click)="click(map.id, map.baseId)"> See
-        map</a></td>
-      <td><a id="d" [routerLink]="['/individual-report', map.baseId]" class="btn btn-primary">See Invidual Report</a>
+      <td><a id="e" class="btn btn-primary" [routerLink]="['/groupMaps', map.baseId]">Group maps</a></td>
+      <td><a id="f" class="btn btn-primary" [routerLink]="['/group-report', map.baseId]">Group report</a></td>
+      <td><a id="d" [routerLink]="['/individual-report', map.baseId]" class="btn btn-primary">Individual Report</a>
       </td>
     </tr>
 

@@ -12,9 +12,11 @@ import {ActivatedRoute} from '@angular/router';
 export class IndividualReportComponent implements OnInit {
 
   baseId = '';
+  data: any;
+  student: any;
   public barChartOptions = {
     scaleShowVerticalLines: true,
-    responsive: false,
+    responsive: true,
     legend: {
       labels: {
         fontSize: 50
@@ -54,13 +56,15 @@ export class IndividualReportComponent implements OnInit {
     this.baseId = this.route.snapshot.params.baseId;
     if (localStorage.getItem('rol') === 'Student') {
       this.service.getStudentReportStudent(this.baseId).subscribe(res => {
+        this.student = res[0];
         this.barChartLabels = res[0].topic_distribution.topic;
         this.barChartData = [{data: res[0].topic_distribution.importances, label: 'Topic Distribution'}];
       }, err => {
         console.log(err);
       });
     } else {
-      this.service.getStudentReportTeacher(this.baseId).subscribe(res => {
+      this.service.getStudentReportTeacher(this.baseId, localStorage.getItem('std_id')).subscribe(res => {
+        console.log(res);
         this.barChartLabels = res[0].topic_distribution.topic;
         this.barChartData = [{data: res[0].topic_distribution.importances, label: 'Topic Distribution'}];
       }, err => {

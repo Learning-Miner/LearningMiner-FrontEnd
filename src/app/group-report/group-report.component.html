@@ -15,17 +15,90 @@
 
 <body>
 <app-navbar></app-navbar>
-<h1>Reporte grupal</h1>
+<h1>Group report</h1>
+<div align="center">
+  <label><b>Similarity values graph</b></label>
+</div>
 
-<div class="chart-wrapper">
+<div display="block" *ngIf="barChartDataSimilarity.length > 0">
   <canvas baseChart
-          [datasets]="bubbleChartData"
-          [options]="bubbleChartOptions"
-          [colors]="bubbleChartColors"
-          [legend]="bubbleChartLegend"
-          [chartType]="bubbleChartType">
+          style="height: 10%; width: 10%"
+          [datasets]="barChartDataSimilarity"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          [colors]="chartColors">
   </canvas>
 </div>
+
+<label>Explanation similarity</label>
+
+<div align="center">
+  <label><b>Concept numbers</b></label>
+</div>
+
+<div style="display: block;" *ngIf="polarAreaChartData.length > 0">
+  <canvas baseChart
+          style="height:10%; width: 10%"
+          [data]="polarAreaChartData"
+          [labels]="polarAreaChartLabels"
+          [legend]="polarAreaLegend"
+          [chartType]="polarAreaChartType">
+  </canvas>
+</div>
+
+<label>Explanation concept numbers</label>
+
+<div align="center">
+  <label><b>Students used time</b></label>
+</div>
+
+<div display="block" *ngIf="barChartDataTime.length > 0">
+  <canvas baseChart
+          style="height:10%; width: 10%"
+          [datasets]="barChartDataTime"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          [colors]="chartColors">
+  </canvas>
+</div>
+
+<label>Explanation used time</label>
+
+<div align="center">
+  <label><b>Words importances</b></label>
+</div>
+
+<div display="block" *ngIf="barChartDataTime.length > 0">
+  <canvas baseChart
+          style="height:10%; width: 10%"
+          [datasets]="radarChartData"
+          [options]="radarChartOptions"
+          [labels]="radarChartLabels"
+          [chartType]="radarChartType">
+  </canvas>
+</div>
+
+<label>Explanation word importances</label>
+
+<div align="center">
+  <label><b>Words counts</b></label>
+</div>
+
+<div display="block" *ngIf="barChartDataTime.length > 0">
+  <canvas baseChart
+          style="height:10%; width: 10%"
+          [datasets]="radarChartDataWordCount"
+          [options]="radarChartOptions"
+          [labels]="radarChartLabelsWordCount"
+          [chartType]="radarChartType">
+  </canvas>
+</div>
+
+<label>Explanation words counts</label>
 
 </body>
 </html>

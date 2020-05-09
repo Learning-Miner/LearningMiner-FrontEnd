@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'cm-ongoing-activities',
@@ -11,8 +12,10 @@ export class OngoingActivitiesComponent implements OnInit {
   activities: Array<any> = [];
 
   constructor(
-    public service: UserService
-  ) { }
+    public service: UserService,
+    private router: Router
+  ) {
+  }
 
   ngOnInit() {
     this.service.getActivities('open')
@@ -23,6 +26,24 @@ export class OngoingActivitiesComponent implements OnInit {
         }
       }, err => {
         console.log(err);
+      });
+  }
+
+  closeActivity(baseId, actId) {
+    this.service.closeActivity(actId).subscribe(tasks => {
+      console.log(tasks);
+      this.service.createReports(baseId).subscribe(res => {
+        console.log(res);
+      }, err => {
+        console.log(err);
+      });
+    }, error => {
+      console.log(error);
+    });
+
+    this.router.navigate(['/closedActivities'])
+      .then(() => {
+        window.location.reload();
       });
   }
 

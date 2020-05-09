@@ -26,5 +26,4 @@ export class ClosedActivitiesComponent implements OnInit {
         console.log(err);
       });
   }
-
 }

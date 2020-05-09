@@ -75,3 +75,17 @@ tr td {
 tr:hover {
   background-color: #e7d8d0;
 }
+
+b {
+  font-size: 2cm;
+  color: #306a76;
+}
+
+label {
+  font-size: 2cm;
+}
+
+canvas {
+  width: 1000px;
+  height: 1000px;
+}

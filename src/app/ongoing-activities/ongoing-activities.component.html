@@ -22,7 +22,7 @@
     <tr>
       <td><h2>{{activity.Title}}</h2></td>
       <td><a id="e" class="btn btn-primary" [routerLink]="['/activity', activity.actId]">Activity details</a></td>
-      <td><a id="d" class="btn btn-primary">Close activity</a></td>
+      <td><a id="d" class="btn btn-primary" (click) = "closeActivity(activity.baseId, activity.actId)">Close activity</a></td>
     </tr>
   </table>
 </div>

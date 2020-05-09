@@ -15,15 +15,14 @@
 
 <body>
 <app-navbar></app-navbar>
-<h1>Closed activities</h1>
-<label *ngIf="activities.length == 0">User does not have closed activities</label>
-<div *ngIf="activities.length > 0">
-  <table *ngFor="let activity of activities">
+<h1>Group maps</h1>
+<label *ngIf="maps.length == 0">There is any group map</label>
+<div *ngIf="maps.length > 0">
+  <table *ngFor="let s of maps; let i = index">
     <tr>
-      <td><h2>{{activity.Title}}</h2></td>
-      <td><a id="e" class="btn btn-primary" [routerLink]="['/groupMaps', activity.baseId]">Group maps</a></td>
-      <td><a id="f" class="btn btn-primary" [routerLink]="['/group-report', activity.baseId]">Group report</a></td>
-      <td><a id="d" class="btn btn-primary" [routerLink]="['/individualReports', activity.baseId]">Individual reports</a></td>
+      <td><h2>Map {{i + 1}}</h2></td>
+      <td></td>
+      <td><a id="e" class="btn btn-primary" [routerLink]="['/editor', s._id.$oid]" (click)="storeMap(s._id.$oid)">View map</a></td>
     </tr>
   </table>
 </div>
