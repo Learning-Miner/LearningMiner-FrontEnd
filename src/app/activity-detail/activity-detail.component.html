@@ -5,11 +5,11 @@
   <title>LearningMiner</title>
   <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Open source concept mapping tool built with angular">
   <meta name="keywords" content="Pedagogical reading comprehension tool">
   <meta name="author" content="D2M">
-  <link rel="formatoVentana" href="list-maps.component.css">
+  <link rel="formatoVentana" href="activity-detail.component.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
     rel="stylesheet">
@@ -17,31 +17,39 @@
 </head>
 
 <body>
-<app-navbar></app-navbar>
+  <app-navbar></app-navbar>
 
-<h1>Activity details</h1>
-<br/>
-<div *ngIf="activity">
-  <label><b>Title: </b>{{activity.Title}}</label>
-  <br/>
-  <label><b>End Date: </b>{{activity.dateClose}}</label>
-  <br/>
-  <label *ngIf="service.isTeacher()"><b>Type a keyword</b></label>
-  <br/>
-  <input type="text" (change)="addKeyword($event)" *ngIf="service.isTeacher()"/>
-  <button class="btn" *ngIf="service.isTeacher()">Add</button>
-  <br/>
-  <label><b>Keywords</b></label>
-  <br/>
-  <section *ngFor="let keyword of keywordsArray; let i = index">
+  <h1>Activity details</h1>
+
+  <div *ngIf="activity">
+
+    <h2> Title: </h2>
+    <div id ="t"> {{activity.Title}} </div>
+
+    <h3> Author:</h3>
+    <div id = "a"> Acá va el autor </div>
+
+    <h4> Data Base: </h4>
+    <div id = "db" > Acá va la DB </div>  
+
+    <h5> Keywords: </h5>
+    <div id="k">    
+      <section *ngFor="let keyword of keywordsArray; let i = index">
+        <li>{{keyword}} </li>
+      </section>
+    </div>
+    
+    <div id="ed"> <b>End Date: </b>{{activity.dateClose}}</div>
+
+    <button class="start"> Start to Create </button>  
+  
+    <h6 *ngIf="service.isTeacher()">Type a keyword</h6>
+    <input type="text" (change)="addKeyword($event)" *ngIf="service.isTeacher()"/>
+    <button class="btn" *ngIf="service.isTeacher()">Add</button>
     <button *ngIf="service.isTeacher()" class="remove" (click)="removeKeyword(i)">-</button>
-    <label>{{keyword}}</label>
-  </section>
-  <br/><br/>
-  <button class="options" *ngIf="service.isTeacher()" (click)="goBaseMap()">View base map</button>
-  <button class="options" routerLink="/ongoingActivities" *ngIf="service.isTeacher()">View ongoing activities</button>
-  <div align="center">
     <button class="save" (click)="updateActivity()" *ngIf="service.isTeacher()">Update activity</button>
+    <button class="options" *ngIf="service.isTeacher()" (click)="goBaseMap()">View base map</button>
+    <button class="options" routerLink="/ongoingActivities" *ngIf="service.isTeacher()">View ongoing activities</button>
+
   </div>
-</div>
 </body>

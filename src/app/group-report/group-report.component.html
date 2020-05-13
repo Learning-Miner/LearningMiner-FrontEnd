@@ -5,100 +5,81 @@
   <title>LearningMiner</title>
   <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Open source concept mapping tool built with angular">
   <meta name="keywords" content="Pedagogical reading comprehension tool">
   <meta name="author" content="D2M">
-  <link rel="formatoVentana" href="list-maps.component.css">
+  <link rel="formatoVentana" href="group-report.component.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<app-navbar></app-navbar>
-<h1>Group report</h1>
-<div align="center">
-  <label><b>Similarity values graph</b></label>
-</div>
+  <app-navbar></app-navbar>
+  <h1>Group Report</h1>
 
-<div display="block" *ngIf="barChartDataSimilarity.length > 0">
-  <canvas baseChart
-          style="height: 10%; width: 10%"
-          [datasets]="barChartDataSimilarity"
-          [labels]="barChartLabels"
-          [options]="barChartOptions"
-          [legend]="barChartLegend"
-          [chartType]="barChartType"
-          [colors]="chartColors">
-  </canvas>
-</div>
+  <label id="t">Similarity values graph</label>
+  <div id="g" *ngIf="barChartDataSimilarity.length > 0">
+    <canvas baseChart
+            style="height: 10%; width: 10%"
+            [datasets]="barChartDataSimilarity"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="chartColors">
+    </canvas>
+    <p> Acá va el párrafo </p>
+  </div>
 
-<label>Explanation similarity</label>
+  <label id="t">Concept numbers</label>
+  <div id="g" *ngIf="polarAreaChartData.length > 0">
+    <canvas baseChart
+            style="height:10%; width: 10%"
+            [data]="polarAreaChartData"
+            [labels]="polarAreaChartLabels"
+            [legend]="polarAreaLegend"
+            [chartType]="polarAreaChartType">
+    </canvas>
+    <p> Acá va el párrafo </p>
+  </div>
 
-<div align="center">
-  <label><b>Concept numbers</b></label>
-</div>
+  <label id="t">Students used time</label>
+  <div id="g" *ngIf="barChartDataTime.length > 0">
+    <canvas baseChart
+            style="height:10%; width: 10%"
+            [datasets]="barChartDataTime"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="chartColors">
+    </canvas>
+    <p> Acá va el párrafo </p>
+  </div>
 
-<div style="display: block;" *ngIf="polarAreaChartData.length > 0">
-  <canvas baseChart
-          style="height:10%; width: 10%"
-          [data]="polarAreaChartData"
-          [labels]="polarAreaChartLabels"
-          [legend]="polarAreaLegend"
-          [chartType]="polarAreaChartType">
-  </canvas>
-</div>
+  <label id="t">Words importances</label>
+  <div id="g" *ngIf="barChartDataTime.length > 0">
+    <canvas baseChart
+            style="height:10%; width: 10%"
+            [datasets]="radarChartData"
+            [options]="radarChartOptions"
+            [labels]="radarChartLabels"
+            [chartType]="radarChartType">
+    </canvas>
+    <p> Acá va el párrafo </p>
+  </div>
 
-<label>Explanation concept numbers</label>
-
-<div align="center">
-  <label><b>Students used time</b></label>
-</div>
-
-<div display="block" *ngIf="barChartDataTime.length > 0">
-  <canvas baseChart
-          style="height:10%; width: 10%"
-          [datasets]="barChartDataTime"
-          [labels]="barChartLabels"
-          [options]="barChartOptions"
-          [legend]="barChartLegend"
-          [chartType]="barChartType"
-          [colors]="chartColors">
-  </canvas>
-</div>
-
-<label>Explanation used time</label>
-
-<div align="center">
-  <label><b>Words importances</b></label>
-</div>
-
-<div display="block" *ngIf="barChartDataTime.length > 0">
-  <canvas baseChart
-          style="height:10%; width: 10%"
-          [datasets]="radarChartData"
-          [options]="radarChartOptions"
-          [labels]="radarChartLabels"
-          [chartType]="radarChartType">
-  </canvas>
-</div>
-
-<label>Explanation word importances</label>
-
-<div align="center">
-  <label><b>Words counts</b></label>
-</div>
-
-<div display="block" *ngIf="barChartDataTime.length > 0">
-  <canvas baseChart
-          style="height:10%; width: 10%"
-          [datasets]="radarChartDataWordCount"
-          [options]="radarChartOptions"
-          [labels]="radarChartLabelsWordCount"
-          [chartType]="radarChartType">
-  </canvas>
-</div>
-
-<label>Explanation words counts</label>
-
+  <label id="t">Words counts</label>
+  <div id ="g" *ngIf="barChartDataTime.length > 0">
+    <canvas baseChart
+            style="height:10%; width: 10%"
+            [datasets]="radarChartDataWordCount"
+            [options]="radarChartOptions"
+            [labels]="radarChartLabelsWordCount"
+            [chartType]="radarChartType">
+    </canvas>
+    <p> Acá va el párrafo </p>
+  </div>
+  
 </body>
 </html>

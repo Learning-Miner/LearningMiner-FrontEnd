@@ -1,96 +1,99 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Montserrat";
-  background: url(lm.jpg);
-  background-size: cover;
-  height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat";
+    background-color: #fcfdfe;
+    height: 100vh;
 }
 
 h1 {
-  font-size: 2cm;
-  width: 60%;
-  margin-top: 3%;
-  margin-left: 20%;
-  background-color: #e7f3f7;
-  color: #306a76;
-  text-align: center;
-  padding: 0.5cm;
-  border-style: outset;
-  border-color: #d5f1fa;
-  font-weight: bolder;
-  user-select: none;
+    font-size: 2cm;
+    width: 75%;
+    margin-top: 3%;
+    margin-left: 10%;
+    background-color: #e7f3f7;
+    color: #306a76;
+    text-align: center;
+    padding: 0.5cm;
+    border-style: outset;
+    border-color: #d5f1fa;
+    font-weight: bolder;
+    user-select: none;
 }
 
 table {
-  width: 60%;
-  margin-top: 2%;
-  margin-left: 20%;
-  border-collapse: collapse;
-  background-color: #fff0f0;
-  border-style: solid;
-  border-color: #fde7e7;
-  overflow: auto;
+    width: 75%;
+    margin-top: 2%;
+    margin-left: 10%;
+    border-collapse: collapse;
+    background-color: #fff0f0;
+    border-style: solid;
+    border-color: #fde7e7;
+    overflow-y: auto;
 }
 
 h2 {
-  width: 100%;
-  margin-left: 3cm;
-  margin-right: 3cm;
-  font-size: 1.5cm;
-  font-weight: bolder;
+    width: 93%;
+    margin-left: 3cm;
+    margin-right: 3cm;
+    font-size: 1.5cm;
+    font-weight: bolder;
 }
 
 tr td {
-  color: #306a76;
-  padding: 8px;
-  width: 40%;
+    color: #306a76;
+    padding: 8px;
+    width: 60%;
 }
 
-#e {
-  cursor: pointer;
-  background-color: #f6e3a0;
-  padding: 0.5cm 1cm;
-  margin-left: 40cm;
-  font-size: 1.3cm;
-  color: #306a76;
+#gm {
+    cursor: pointer;
+    background-color: #f6e3a0;
+    padding: 0.5cm 1cm;
+    margin-left: 3cm;
+    font-size: 1.3cm;
+    color: #306a76;
 }
 
-#d {
-  cursor: pointer;
-  background-color: #f6e3a0;
-  padding: 0.5cm 1cm;
-  margin-left: 4cm;
-  font-size: 1.3cm;
-  color: #306a76;
+#gr {
+    cursor: pointer;
+    background-color: #f6e3a0;
+    padding: 0.5cm 1cm;
+    margin-left: -25.5cm;
+    font-size: 1.3cm;
+    color: #306a76;
 }
 
-#f {
-  cursor: pointer;
-  background-color: #f6e3a0;
-  padding: 0.5cm 1cm;
-  margin-left: 4cm;
-  font-size: 1.3cm;
-  color: #306a76;
+#ir {
+    cursor: pointer;
+    background-color: #f6e3a0;
+    padding: 0.5cm 1cm;
+    margin-left: -14cm;
+    font-size: 1.3cm;
+    color: #306a76;
 }
 
-#e:hover {
-  font-weight: bolder;
+#gm:hover {
+    font-weight: bolder;
 }
 
-#d:hover {
-  font-weight: bolder;
+#gr:hover {
+    font-weight: bolder;
+}
+
+#ir:hover {
+    font-weight: bolder;
 }
 
 tr:hover {
-  background-color: #e7d8d0;
+    background-color: #e7d8d0;
 }
 
 label {
-  font-size: 2cm;
-  text-align: center;
-  color: #306a76;
-  display: block;
-  vertical-align: center;
-  line-height: 20;
+    font-size: 2cm;
+    text-align: center;
+    color: #306a76;
+    display: block;
+    vertical-align: center;
+    line-height: 20;
 }

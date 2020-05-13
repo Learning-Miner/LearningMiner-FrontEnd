@@ -5,11 +5,11 @@
   <title>LearningMiner</title>
   <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Open source concept mapping tool built with angular">
   <meta name="keywords" content="Pedagogical reading comprehension tool">
   <meta name="author" content="D2M">
-  <link rel="formatoVentana" href="list-maps.component.css">
+  <link rel="formatoVentana" href="done-maps.component.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet">
 </head>
 
@@ -21,10 +21,9 @@
   <table *ngFor="let map of maps">
     <tr>
       <td><h2>{{map.title}}</h2></td>
-      <td><a id="e" class="btn btn-primary" [routerLink]="['/groupMaps', map.baseId]">Group maps</a></td>
-      <td><a id="f" class="btn btn-primary" [routerLink]="['/group-report', map.baseId]">Group report</a></td>
-      <td><a id="d" [routerLink]="['/individual-report', map.baseId]" class="btn btn-primary">Individual Report</a>
-      </td>
+      <td><a id="gm" class="btn btn-primary" [routerLink]="['/groupMaps', map.baseId]">Group maps</a></td>
+      <td><a id="gr" class="btn btn-primary" [routerLink]="['/group-report', map.baseId]">Group report</a></td>
+      <td><a id="ir" [routerLink]="['/individual-report', map.baseId]" class="btn btn-primary">Individual Report</a></td>
     </tr>
 
   </table>

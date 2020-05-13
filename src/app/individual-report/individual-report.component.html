@@ -5,28 +5,30 @@
   <title>LearningMiner</title>
   <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Open source concept mapping tool built with angular">
   <meta name="keywords" content="Pedagogical reading comprehension tool">
   <meta name="author" content="D2M">
-  <link rel="formatoVentana" href="list-maps.component.css">
+  <link rel="formatoVentana" href="individual-report.component.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 <app-navbar></app-navbar>
-<h1>Individual report</h1>
-<br/>
+<h1>Individual Report</h1>
+
 <div>
-  <label *ngIf="student"><b>Concepts number: </b>{{student.num_concepts}} concepts</label>
-  <br/>
-  <label *ngIf="student"><b>Similarity: </b>{{student.similarity}}%</label>
-  <br/>
-  <label *ngIf="student"><b>Used time: </b>{{student.time_used}} seconds</label>
-  <div align="center">
-    <label><b>Topic distribution graph</b></label>
-  </div>
-  <div>
+  <h2 *ngIf="student">Concepts number: </h2>
+  <div id ="cn"> {{student.num_concepts}} concepts</div>
+  
+  <h3 *ngIf="student">Similarity:</h3>
+  <div id = "s"> {{student.similarity}}% </div>
+  
+  <h4 *ngIf="student"> Used time: </h4>
+  <div id = "us" > {{student.time_used}} seconds </div>  
+
+  <label id="t">Topic distribution graph</label>
+  <div id="g">
     <canvas baseChart
             style="height:10%; width: 10%"
             [datasets]="barChartData"
@@ -35,9 +37,8 @@
             [legend]="barChartLegend"
             [chartType]="barChartType">
     </canvas>
+    <p> Acá va el párrafo </p>
   </div>
-  <label>Explanation</label>
-</div>
-
+  </div>
 </body>
 </html>

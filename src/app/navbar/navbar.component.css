@@ -5,6 +5,7 @@ ul {
     overflow: hidden;
     background-color: #f6e3a0;
     font-family: "Montserrat";
+    width: 100%;
 }
 
 li {

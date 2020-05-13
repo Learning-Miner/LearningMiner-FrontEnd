@@ -3,6 +3,7 @@ body {
     padding: 0;
     font-family: "Montserrat";
     background-color: #fcfdfe;
+    color: #306a76;
 }
 
 #pantalla-dividida {
@@ -39,7 +40,7 @@ p {
     text-align: justify;
     padding-left: 4.5%;
     padding-right: 4.5%;
-    padding-bottom: 5%;
+    padding-bottom: 3.5%;
 }
 
 h2 {

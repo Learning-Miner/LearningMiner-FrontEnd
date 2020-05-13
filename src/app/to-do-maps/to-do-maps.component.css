@@ -1,17 +1,16 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: "Montserrat";
-    background: url(lm.jpg);
+    background-color: #fcfdfe;
     background-size: cover;
     height: 100vh;
 }
 
 h1 {
     font-size: 2cm;
-    width: 60%;
+    width: 70%;
     margin-top: 3%;
-    margin-left: 20%;
+    margin-left: 15%;
     background-color: #e7f3f7;
     color: #306a76;
     text-align: center;
@@ -23,18 +22,18 @@ h1 {
 }
 
 table {
-    width: 60%;
+    width: 70%;
     margin-top: 2%;
-    margin-left: 20%;
+    margin-left: 15%;
     border-collapse: collapse;
     background-color: #fff0f0;
     border-style: solid;
     border-color: #fde7e7;
-    overflow: auto;
+    overflow-y: auto;
 }
 
 h2 {
-    width: 100%;
+    width: 150%;
     margin-left: 3cm;
     margin-right: 3cm;
     font-size: 1.5cm;
@@ -44,14 +43,14 @@ h2 {
 tr td {
     color: #306a76;
     padding: 8px;
-    width: 40%;
+    width: 60%;
 }
 
 #e {
     cursor: pointer;
     background-color: #f6e3a0;
     padding: 0.5cm 1cm;
-    margin-left: 40cm;
+    margin-left: 11cm;
     font-size: 1.3cm;
     color: #306a76;
 }
@@ -60,9 +59,9 @@ tr td {
     cursor: pointer;
     background-color: #f6e3a0;
     padding: 0.5cm 1cm;
-    margin-left: 4cm;
+    margin-left: -13cm;
     font-size: 1.3cm;
-  color: #306a76;
+    color: #306a76;
 }
 
 #e:hover {
@@ -78,10 +77,10 @@ tr:hover {
 }
 
 label {
-  font-size: 2cm;
-  text-align: center;
-  color: #306a76;
-  display: block;
-  vertical-align: center;
-  line-height: 20;
+    font-size: 2cm;
+    text-align: center;
+    color: #306a76;
+    display: block;
+    vertical-align: center;
+    line-height: 20;
 }

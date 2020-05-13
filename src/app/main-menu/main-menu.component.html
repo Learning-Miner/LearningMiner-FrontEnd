@@ -5,11 +5,11 @@
   <title>LearningMiner</title>
   <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Open source concept mapping tool built with angular">
   <meta name="keywords" content="Pedagogical reading comprehension tool">
   <meta name="author" content="D2M">
-  <link rel="formatoVentana" href="list-maps.component.css">
+  <link rel="formatoVentana" href="main-menu.component.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
     rel="stylesheet">
@@ -24,7 +24,10 @@
   <div class="izquierda">
     <div class="recomendacion">
       <h1> KEEP IN MIND </h1>
-      <p> Acá va el parrafo</p>
+      <p> To create a complete concept map:</p>
+      <p> In theory, a concept map should have <b>5 or 6 keywords</b>, and each of them should have around <b>3 related concepts</b>, having a <b>total</b> around of <b>18 and 20 concepts</b>. </p>
+      <p> It is also important to highlight the number of concepts at a congnitive level, to improve the long-term concepts retention, it is recommended to have <b>3 or 4 keywords</b>. This ability could be improved with conceptual collection, managing to remember <b>7</b> long-term concepts.</p>
+      <p> It is recommended to elaborate a concept map using between <b>5 and 7 keywords and between 15 and 20 concepts in total</b>. </p>
     </div>
   </div>
 
@@ -40,7 +43,6 @@
         <label *ngIf="pendingMaps.length == 0">User does not have to-do maps</label>
         <section *ngFor="let map of pendingMaps">
           <li>{{map}}</li>
-          <br/>
         </section>
       </div>
       <div id="e">
