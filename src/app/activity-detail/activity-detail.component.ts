@@ -48,7 +48,9 @@ export class ActivityDetailComponent implements OnInit {
   }
 
   removeKeyword(i) {
-    this.keywordsArray.splice(i, 1);
+    if (this.service.isTeacher()) {
+      this.keywordsArray.splice(i, 1);
+    }
   }
 
   updateActivity() {
@@ -63,5 +65,14 @@ export class ActivityDetailComponent implements OnInit {
   goBaseMap() {
     localStorage.setItem('mapId', this.activity.baseId);
     this.router.navigate(['/editor/' + this.activity.baseId]);
+  }
+
+  click(title: string, baseId) {
+    this.service.createMap(title, baseId).subscribe(res => {
+      console.log(res);
+      this.router.navigate(['/editor/' + res.id]);
+    }, err => {
+      console.log(err);
+    });
   }
 }

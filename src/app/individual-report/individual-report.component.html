@@ -20,22 +20,22 @@
 <div>
   <h2 *ngIf="student">Concepts number: </h2>
   <div id ="cn"> {{student.num_concepts}} concepts</div>
-  
+
   <h3 *ngIf="student">Similarity:</h3>
   <div id = "s"> {{student.similarity}}% </div>
-  
+
   <h4 *ngIf="student"> Used time: </h4>
-  <div id = "us" > {{student.time_used}} seconds </div>  
+  <div id = "us" > {{student.time_used}} seconds </div>
 
   <label id="t">Topic distribution graph</label>
   <div id="g">
     <canvas baseChart
             style="height:10%; width: 10%"
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [legend]="barChartLegend"
-            [chartType]="barChartType">
+            [datasets]="radarChartData"
+            [options]="radarChartOptions"
+            [labels]="radarChartLabels"
+            [legend]="radarChartLegend"
+            [chartType]="radarChartType">
     </canvas>
     <p> Acá va el párrafo </p>
   </div>

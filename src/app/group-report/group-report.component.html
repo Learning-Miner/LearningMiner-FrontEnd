@@ -14,72 +14,64 @@
 </head>
 
 <body>
-  <app-navbar></app-navbar>
-  <h1>Group Report</h1>
+<app-navbar></app-navbar>
+<h1>Group Report</h1>
 
-  <label id="t">Similarity values graph</label>
-  <div id="g" *ngIf="barChartDataSimilarity.length > 0">
+<label id="t">Similarity values graph</label>
+<div id="g" *ngIf="barChartDataSimilarity.length > 0">
+  <canvas baseChart
+          style="height: 10%; width: 10%"
+          [datasets]="barChartDataSimilarity"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          [colors]="chartColors">
+  </canvas>
+  <p> Acá va el párrafo </p>
+</div>
+
+<label id="t">Concept numbers</label>
+<div id="g" *ngIf="barChartDataHorizontal.length > 0">
+  <canvas baseChart
+          style="height:10%; width: 10%"
+          [options]="barChartOptions"
+          [datasets]="barChartDataHorizontal"
+          [labels]="barChartLabelsHorizontal"
+          [legend]="barChartLegendHorizontal"
+          [chartType]="barChartType">
+  </canvas>
+  <p> Acá va el párrafo </p>
+</div>
+
+<label id="t">Students used time</label>
+<div id="g" *ngIf="barChartDataTime.length > 0">
+  <canvas baseChart
+          style="height:10%; width: 10%"
+          [datasets]="barChartDataTime"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          [colors]="chartColors2">
+  </canvas>
+  <p> Acá va el párrafo </p>
+</div>
+
+<div id="g" *ngIf="barChartLabelWords.length > 0">
+  <section *ngFor="let chart of barChartDataWords; let i = index">
+    <label id="t">Topic {{i}}</label>
     <canvas baseChart
-            style="height: 10%; width: 10%"
-            [datasets]="barChartDataSimilarity"
-            [labels]="barChartLabels"
+            style="height:10%; width: 10%"
+            [datasets]="barChartDataWords[i]"
+            [labels]="barChartLabelWords[i]"
             [options]="barChartOptions"
             [legend]="barChartLegend"
-            [chartType]="barChartType"
-            [colors]="chartColors">
+            [chartType]="barChartTypeHorizontal">
     </canvas>
-    <p> Acá va el párrafo </p>
-  </div>
+  </section>
+  <p> Acá va el párrafo </p>
+</div>
 
-  <label id="t">Concept numbers</label>
-  <div id="g" *ngIf="polarAreaChartData.length > 0">
-    <canvas baseChart
-            style="height:10%; width: 10%"
-            [data]="polarAreaChartData"
-            [labels]="polarAreaChartLabels"
-            [legend]="polarAreaLegend"
-            [chartType]="polarAreaChartType">
-    </canvas>
-    <p> Acá va el párrafo </p>
-  </div>
-
-  <label id="t">Students used time</label>
-  <div id="g" *ngIf="barChartDataTime.length > 0">
-    <canvas baseChart
-            style="height:10%; width: 10%"
-            [datasets]="barChartDataTime"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [legend]="barChartLegend"
-            [chartType]="barChartType"
-            [colors]="chartColors">
-    </canvas>
-    <p> Acá va el párrafo </p>
-  </div>
-
-  <label id="t">Words importances</label>
-  <div id="g" *ngIf="barChartDataTime.length > 0">
-    <canvas baseChart
-            style="height:10%; width: 10%"
-            [datasets]="radarChartData"
-            [options]="radarChartOptions"
-            [labels]="radarChartLabels"
-            [chartType]="radarChartType">
-    </canvas>
-    <p> Acá va el párrafo </p>
-  </div>
-
-  <label id="t">Words counts</label>
-  <div id ="g" *ngIf="barChartDataTime.length > 0">
-    <canvas baseChart
-            style="height:10%; width: 10%"
-            [datasets]="radarChartDataWordCount"
-            [options]="radarChartOptions"
-            [labels]="radarChartLabelsWordCount"
-            [chartType]="radarChartType">
-    </canvas>
-    <p> Acá va el párrafo </p>
-  </div>
-  
 </body>
 </html>

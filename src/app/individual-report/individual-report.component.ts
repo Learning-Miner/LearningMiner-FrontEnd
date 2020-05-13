@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../services/user.service';
-import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
+import {ChartDataSets, ChartOptions, ChartType, RadialChartOptions} from 'chart.js';
 import {Label} from 'ng2-charts';
 import {ActivatedRoute} from '@angular/router';
 
@@ -14,37 +14,34 @@ export class IndividualReportComponent implements OnInit {
   baseId = '';
   data: any;
   student: any;
-  public barChartOptions = {
-    scaleShowVerticalLines: true,
+
+  public radarChartOptions: RadialChartOptions = {
     responsive: true,
     legend: {
       labels: {
         fontSize: 50
       }
     },
-    scales: {
-      yAxes: [
-        {
-          display: true,
-          ticks: {
-            fontSize: 50
-          }
-        }
-      ],
-      xAxes: [
-        {
-          display: true,
-          ticks: {
-            fontSize: 50
-          }
-        }
-      ]
-    }
+    scale: {
+      pointLabels: {
+        fontSize: 50
+      },
+      ticks: {
+        fontSize: 50
+      },
+      gridLines: {
+        lineWidth: 10
+      },
+      angleLines: {
+        lineWidth: 10
+      }
+    },
   };
-  public barChartLabels = [];
-  public barChartType = 'bar';
-  public barChartLegend = true;
-  public barChartData = [];
+  public radarChartLabels: Label[] = [];
+
+  public radarChartData: ChartDataSets[] = [];
+  public radarChartType: ChartType = 'radar';
+  public radarChartLegend = true;
 
   constructor(
     private service: UserService,
@@ -57,16 +54,16 @@ export class IndividualReportComponent implements OnInit {
     if (localStorage.getItem('rol') === 'Student') {
       this.service.getStudentReportStudent(this.baseId).subscribe(res => {
         this.student = res[0];
-        this.barChartLabels = res[0].topic_distribution.topic;
-        this.barChartData = [{data: res[0].topic_distribution.importances, label: 'Topic Distribution'}];
+        this.radarChartLabels = res[0].topic_distribution.topic;
+        this.radarChartData = [{data: res[0].topic_distribution.importances, label: 'Topic Distribution'}];
       }, err => {
         console.log(err);
       });
     } else {
       this.service.getStudentReportTeacher(this.baseId, localStorage.getItem('std_id')).subscribe(res => {
         console.log(res);
-        this.barChartLabels = res[0].topic_distribution.topic;
-        this.barChartData = [{data: res[0].topic_distribution.importances, label: 'Topic Distribution'}];
+        this.radarChartLabels = res[0].topic_distribution.topic;
+        this.radarChartData = [{data: res[0].topic_distribution.importances, label: 'Topic Distribution'}];
       }, err => {
         console.log(err);
       });

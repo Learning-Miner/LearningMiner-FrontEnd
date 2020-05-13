@@ -4,6 +4,7 @@ import {ChartDataSets, ChartOptions, ChartType, RadialChartOptions} from 'chart.
 import {UserService} from '../services/user.service';
 import {ActivatedRoute} from '@angular/router';
 import {BubblePoint} from '../models/bubblePoint';
+import {Chart} from 'chart.js';
 
 @Component({
   selector: 'cm-group-report',
@@ -45,15 +46,11 @@ export class GroupReportComponent implements OnInit {
 
   public radarChartDataWordCount: ChartDataSets[] = [];
 
-  public polarAreaChartLabels: Label[] = [];
-  public polarAreaChartData: SingleDataSet = [];
-  public polarAreaLegend = true;
+  public barChartLabelsHorizontal: Label[] = [];
+  public barChartDataHorizontal = [];
+  public barChartLegendHorizontal = true;
 
-  public polarAreaChartType: ChartType = 'polarArea';
-
-  public bubbleChartData: ChartDataSets[] = [];
-
-  bubbleData: Array<any> = [];
+  public barChartTypeHorizontal: ChartType = 'horizontalBar';
 
   public barChartOptions = {
     scaleShowVerticalLines: true,
@@ -69,7 +66,7 @@ export class GroupReportComponent implements OnInit {
           display: true,
           ticks: {
             fontSize: 50,
-          }
+          },
         }
       ],
       xAxes: [
@@ -85,7 +82,12 @@ export class GroupReportComponent implements OnInit {
 
   public chartColors: any[] = [
     {
-      backgroundColor: '#FF7360'
+      backgroundColor: '#25c1cc96'
+    }];
+
+  public chartColors2: any[] = [
+    {
+      backgroundColor: '#f6e3a0'
     }];
 
   public barChartLabels = [];
@@ -93,6 +95,9 @@ export class GroupReportComponent implements OnInit {
   public barChartLegend = true;
   public barChartDataSimilarity = [];
   public barChartDataTime = [];
+
+  public barChartLabelWords = [];
+  public barChartDataWords = [];
 
   constructor(
     private service: UserService,
@@ -110,15 +115,24 @@ export class GroupReportComponent implements OnInit {
       this.barChartDataSimilarity = [{data: res[0].similarity_values, label: 'Similarity values'}];
       this.barChartDataTime = [{data: res[0].time_used_values, label: 'Number of concepts values'}];
 
+      for (let i = 0; i < res[0].topics.length; i++) {
+        if (res[0].topics[i].words.length !== 0) {
+          this.barChartLabelWords.push(res[0].topics[i].words);
+          this.barChartDataWords.push([
+            {data: res[0].topics[i].importances, label: 'Words importances'},
+            {data: res[0].topics[i].counts, label: 'Words counts'}]
+          );
+        }
+      }
+      console.log(this.barChartDataWords[0]);
       this.radarChartLabels = res[0].topics[0].words;
       this.radarChartData = [{data: res[0].topics[0].importances, label: 'Words importances'}];
 
       this.radarChartLabelsWordCount = res[0].topics[0].words;
       this.radarChartDataWordCount = [{data: res[0].topics[0].counts, label: 'Words count'}];
 
-      this.polarAreaChartLabels = this.barChartLabels;
-      this.polarAreaChartData = res[0].num_concepts_values;
-      this.bubbleChartData = [{data: this.bubbleData, label: 'Topics importances'}];
+      this.barChartLabelsHorizontal = this.barChartLabels;
+      this.barChartDataHorizontal = [{data: res[0].num_concepts_values, label: 'Concept numbers'}];
     }, err => {
       console.log(err);
     });
