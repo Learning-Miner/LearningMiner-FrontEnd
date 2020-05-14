@@ -33,11 +33,11 @@ export class EditorComponent implements OnInit, DoCheck {
       label: 'File',
       items: [
         {
-          label: 'Import (Ctrl+O)',
+          label: 'Import',
           command: () => this.importTool.visible = true
         },
         {
-          label: 'Export (Ctrl+S)',
+          label: 'Export',
           command: () => this.export()
         }
       ]
@@ -46,11 +46,11 @@ export class EditorComponent implements OnInit, DoCheck {
       label: 'Edit',
       items: [
         {
-          label: 'Select All (Ctrl+A)',
+          label: 'Select All',
           command: () => this.cmap.selectAll()
         },
         {
-          label: 'Delete (Delete)',
+          label: 'Delete',
           command: () => this.cmap.deleteSelected()
         }
       ]
