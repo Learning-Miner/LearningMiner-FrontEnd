@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../services/user.service';
 
 @Component({
@@ -11,10 +11,12 @@ export class MainMenuComponent implements OnInit {
   pendingMaps: Array<string> = [];
   editingMaps: Array<string> = [];
   doneMaps: Array<string> = [];
+  activities: Array<any> = [];
 
   constructor(
     public userService: UserService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     if (this.userService.isStudent()) {
@@ -41,6 +43,16 @@ export class MainMenuComponent implements OnInit {
       }, error => {
         console.log(error);
       });
+    } else {
+      this.userService.getActivities('open')
+        .subscribe(res => {
+          if (!res.Message) {
+            this.activities = res;
+            console.log(this.activities);
+          }
+        }, err => {
+          console.log(err);
+        });
     }
   }
 

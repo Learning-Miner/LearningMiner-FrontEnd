@@ -53,7 +53,7 @@ export class IndividualReportComponent implements OnInit {
     this.baseId = this.route.snapshot.params.baseId;
     if (localStorage.getItem('rol') === 'Student') {
       this.service.getStudentReportStudent(this.baseId).subscribe(res => {
-        this.student = res[0];
+        console.log(res[0])
         this.radarChartLabels = res[0].topic_distribution.topic;
         this.radarChartData = [{data: res[0].topic_distribution.importances, label: 'Topic Distribution'}];
       }, err => {
@@ -61,7 +61,8 @@ export class IndividualReportComponent implements OnInit {
       });
     } else {
       this.service.getStudentReportTeacher(this.baseId, localStorage.getItem('std_id')).subscribe(res => {
-        console.log(res);
+        console.log(res[0]);
+        this.student = res[0];
         this.radarChartLabels = res[0].topic_distribution.topic;
         this.radarChartData = [{data: res[0].topic_distribution.importances, label: 'Topic Distribution'}];
       }, err => {

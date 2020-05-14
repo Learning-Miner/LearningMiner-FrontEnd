@@ -30,7 +30,7 @@ export class EditorComponent implements OnInit, DoCheck {
 
   menu: MenuItem[] = [
     {
-      label: 'Select All',
+      label: 'File',
       items: [
         {
           label: 'Import (Ctrl+O)',
@@ -62,14 +62,6 @@ export class EditorComponent implements OnInit, DoCheck {
     {
       label: 'Send Map',
       command: () => this.sendMap()
-    },
-    {
-      label: 'Select All',
-      command: () => this.cmap.selectAll()
-    },
-    {
-      label: 'Delete selected',
-      command: () => this.cmap.deleteSelected()
     },
   ];
 

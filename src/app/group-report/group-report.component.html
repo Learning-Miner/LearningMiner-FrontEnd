@@ -28,7 +28,7 @@
           [chartType]="barChartType"
           [colors]="chartColors">
   </canvas>
-  <p> Acá va el párrafo </p>
+  <p> The chart shows the distribution of the similarity values of each student map with the base concept map. To compute this value Overlapping Degree is used, which analyses whether there is a significant number of common concepts and these are placed (connected) in the same way. This metric takes values between 0 and 1. Where 0 is completely different and 1 is exactly equal. X axis represents each student and in Y axis the value its map got.  </p>
 </div>
 
 <label id="t">Concept numbers</label>
@@ -55,7 +55,7 @@
           [chartType]="barChartType"
           [colors]="chartColors2">
   </canvas>
-  <p> Acá va el párrafo </p>
+  <p> The chart shows the distribution of the time used by each student to create their concept maps. This is a useful indicator of how difficult it was for the students to complete the activity. X axis represents each student and in Y axis the value its map got.  </p>
 </div>
 
 <div id="g" *ngIf="barChartLabelWords.length > 0">
@@ -70,7 +70,7 @@
             [chartType]="barChartTypeHorizontal">
     </canvas>
   </section>
-  <p> Acá va el párrafo </p>
+  <p>This chart shows the keywords of a topic and how important the word is and its count in the overall of the students' concept maps. The importance of a keyword is relative to the frequency of the word in the concept maps belonging to that topic. The X axis has the value of importance and word count and the Y axis shows the keyword. </p>
 </div>
 
 </body>

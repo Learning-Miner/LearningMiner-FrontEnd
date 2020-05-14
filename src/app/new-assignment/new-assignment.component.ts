@@ -29,6 +29,9 @@ export class NewAssignmentComponent implements OnInit {
       title: ['', [Validators.required]],
       text: ['', [Validators.required]],
       closureDate: ['', [Validators.required]],
+      closureHour: ['', [Validators.required]],
+      authors: ['', [Validators.required]],
+      database: ['', [Validators.required]]
     });
   }
 
@@ -43,13 +46,13 @@ export class NewAssignmentComponent implements OnInit {
   }
 
   addActivity() {
-    /*console.log(this.keywordsArray);
-    this.activityForm.get('keywords').setValue(this.keywordsArray);
-    console.log(this.activityForm);*/
+    console.log(this.activityForm);
     const data = {
       'title': this.activityForm.get('title').value,
       'text': this.activityForm.get('text').value,
-      'dateClose': this.activityForm.get('closureDate').value
+      'dateClose': this.activityForm.get('closureDate').value + 'T' + this.activityForm.get('closureHour').value,
+      'authors': this.activityForm.get('authors').value,
+      'database': this.activityForm.get('database').value
     };
     this.service.createActivity(data).subscribe(res => {
       console.log(res);

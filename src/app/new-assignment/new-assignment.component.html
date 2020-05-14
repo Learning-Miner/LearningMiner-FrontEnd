@@ -22,19 +22,22 @@
     <form [formGroup]="activityForm">
 
       <label>Title</label>
-      <input type="text" formControlName="title"/>
+      <input type="text" formControlName="title" placeholder="Ex: An example title"/>
 
       <label>Author</label>
-      <input type="text" formControlName="title"/>
+      <input type="text" formControlName="authors" placeholder="Ex: Susana Martin, Al Fraihat"/>
 
-      <label>Data Base</label>
-      <input type="text" formControlName="title"/>
+      <label>Source</label>
+      <input type="text" formControlName="database" placeholder="Ex: Journal of Fundamental and Applied Sciences"/>
 
       <label>Text</label>
-      <textarea formControlName="text"></textarea>
+      <textarea formControlName="text" placeholder="Ex: Lorem ipsum sit amet..."></textarea>
 
       <label>Closure date</label>
-      <input id="d" type="datetime-local" formControlName="closureDate"/>
+      <input type="text" placeholder="dd/mm/aaaa, Ex: (01/01/2000)" formControlName="closureDate"/>
+
+      <label>Closure hour</label>
+      <input type="text"  placeholder="hh:mm, Ex: (14:00)" formControlName="closureHour"/>
 
       <button (click)="addActivity()">Add activity</button>
 
