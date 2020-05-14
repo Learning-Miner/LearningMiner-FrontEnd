@@ -45,7 +45,7 @@
 
     <button id="add" class="btn" *ngIf="service.isTeacher()">Add</button>
 
-    <button id="r" *ngIf="service.isTeacher()" class="remove" (click)="removeKeyword(i)">Remove</button>
+    <!--<button id="r" *ngIf="service.isTeacher()" class="remove" (click)="removeKeyword(i)">Remove</button>-->
 
     <div id="ed"> <b>End Date: </b>{{activity.dateClose}}</div>
 
@@ -54,7 +54,7 @@
     <button class="save" (click)="updateActivity()" *ngIf="service.isTeacher()">Update activity</button>
 
     <button class="optionsa" *ngIf="service.isTeacher()" (click)="goBaseMap()">View base map</button>
-    
+
     <button class="optionsb" routerLink="/ongoingActivities" *ngIf="service.isTeacher()">View ongoing activities</button>
 
   </div>
