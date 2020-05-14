@@ -4,7 +4,7 @@ body {
     font-family: "Montserrat";
     background-color: #fcfdfe;
     height: 100vh;
-    overflow-y: auto;
+    overflow: hidden;
 }
 
 h1 {

@@ -62,11 +62,24 @@
 
 </section>
 
-<div *ngIf="userService.isTeacher()">
-  <a id="t" [routerLink]="['/newActivity']" class="btn btn-primary">Create Activity</a>
-  <a id="e" [routerLink]="['/ongoingActivities']" class="btn btn-primary">Ongoing Activities</a>
-  <a id="d" [routerLink]="['/closedActivities']" class="btn btn-primary">Closed activities</a>
-</div>
+<section *ngIf="userService.isTeacher()">
+
+  <h1 id="sa"> SCHEDULED ACTIVIES </h1>
+
+  <div class="actividades" >
+    <label id="tl">Falta la condición - User does not schedule any activity</label>
+    <section>
+      <li id="la">Actividades </li>
+    </section>
+  </div>
+
+  <h1 id="w"> What do you want to do today ? </h1>
+  
+  <a id="ca" [routerLink]="['/newActivity']" class="btn btn-primary">Create Activity</a>
+  <a id="oa" [routerLink]="['/ongoingActivities']" class="btn btn-primary">See Ongoing Activities</a>
+  <a id="sca" [routerLink]="['/closedActivities']" class="btn btn-primary">See Closed activities</a>
+
+</section>
 
 </body>
 

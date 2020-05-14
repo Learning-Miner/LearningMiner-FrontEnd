@@ -36,4 +36,5 @@ li button {
 button:hover {
     cursor: pointer;
     font-weight: bold;
+    background-color: #306a76;
 }

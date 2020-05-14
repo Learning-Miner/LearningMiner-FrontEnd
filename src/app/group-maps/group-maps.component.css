@@ -2,8 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Montserrat";
-    background: url(lm.jpg);
-    background-size: cover;
+    background-color: #fcfdfe;
     height: 100vh;
 }
 

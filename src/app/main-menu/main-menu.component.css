@@ -17,10 +17,21 @@ body {
 
 .recomendacion {
     margin: 8%;
-    height: 73vh;
-    background-color: #f6e8da;
+    background-color: #fff0f0;
     border-style: ridge;
     border-color: #eee8eb;
+}
+
+.actividades {
+    width: 50%;
+    height: 34vh;
+    margin-left: 25%;
+    margin-top: 1.5%;
+    border-collapse: collapse;
+    background-color: #fff9f9;
+    border-style: solid;
+    border-color: #fff0f0;
+    overflow-y: auto;
 }
 
 h1 {
@@ -127,7 +138,81 @@ tr a:hover {
     user-select: none;
 }
 
+#sa {
+    font-size: 2cm;
+    width: 50%;
+    margin-top: 4%;
+    margin-left: 25%;
+    background-color: #e7f3f7;
+    color: #306a76;
+    text-align: center;
+    padding: 0.5cm;
+    border-style: outset;
+    border-color: #d5f1fa;
+    font-weight: bolder;
+    user-select: none;
+}
+
+#w {
+    width: 50%;
+    height: 2%;
+    padding: 0.5%;
+    margin-left: 25%;
+    margin-top: 2%;
+    background-color: white;
+    border-color: #d5f1fa;
+    border-style: solid;
+    font-size: 2cm;
+}
+
+#tl {
+    font-size: 1.6cm;
+    text-align: center;
+    padding-left: 4.5%;
+    padding-right: 4.5%;
+    padding-bottom: 3.5%;
+}
+
+#la {
+    font-size: 1.6cm;
+}
+
+#ca {
+    margin-left: 25%;
+    margin-top: 2%;
+}
+
+#oa {
+    margin-left: 2.5%;
+    margin-top: 2%;
+}
+
+#sca {
+    margin-left: 1.8%;
+    margin-top: 2%;
+}
+
+a {
+    padding-left: 1%;
+    padding-right: 1%;
+    background-color: #f6e3a0;
+    border-color: #f6e3a0;
+    border-style: outset;
+    color: #306a76;
+    font-size: 70px;
+}
+
 li {
     list-style-type: circle;
     padding-left: 2%;
+}
+
+label {
+    text-align: center;
+}
+
+a:hover {
+    color: #306a76;
+    font-weight: bold;
+    background-color: #f6e3a0;
 }
