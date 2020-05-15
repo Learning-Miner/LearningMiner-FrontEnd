@@ -33,10 +33,20 @@
     <div id = "db" > {{activity.database}} </div>
 
     <h5> Keywords: </h5>
-    <div id="k">
-      <section *ngFor="let keyword of keywordsArray; let i = index">
-        <li (click)="removeKeyword(i)">{{keyword}}</li>
+
+    <div id="k" *ngIf="service.isStudent()">
+      <section  *ngFor="let keyword of keywordsArray; let i = index"  >
+        <li >{{keyword}}</li>
       </section>
+    </div>
+
+    <div id="kt" *ngIf="service.isTeacher()">   
+      <table *ngFor="let keyword of keywordsArray; let i = index" >
+        <tr>
+          <td><label>{{keyword}}</label></td>
+          <td> <button id="r" *ngIf="service.isTeacher()" class="remove" (click)="removeKeyword(i)">Remove</button></td>
+        </tr>
+      </table>
     </div>
 
     <h6 *ngIf="service.isTeacher()">Type a keyword</h6>
@@ -44,9 +54,7 @@
     <input type="text" (change)="addKeyword($event)" *ngIf="service.isTeacher()"/>
 
     <button id="add" class="btn" *ngIf="service.isTeacher()">Add</button>
-
-    <!--<button id="r" *ngIf="service.isTeacher()" class="remove" (click)="removeKeyword(i)">Remove</button>-->
-
+ 
     <div id="ed"> <b>End Date: </b>{{activity.dateClose}}</div>
 
     <button class="start" *ngIf="service.isStudent()" (click)="click(activity.Title, activity.baseId)"> Start to Create </button>

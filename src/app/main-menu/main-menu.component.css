@@ -183,13 +183,42 @@ tr a:hover {
 }
 
 #oa {
-    margin-left: 2.5%;
+    margin-left: 3.5%;
     margin-top: 2%;
 }
 
 #sca {
-    margin-left: 1.8%;
+    margin-left: 3%;
     margin-top: 2%;
+}
+
+#ta {
+    position: absolute;
+    left: 40%;
+    top: 25%;
+    z-index: 2;
+    margin-bottom: 6cm;
+    font-size: 2cm;
+}
+
+#tt {
+    margin-top: 2cm;
+    margin: 1.6cm;
+    height: auto;
+    width: 95%;
+    font-size: 2cm;
+    border-color: #fff0f0;
+    border-bottom-style: dotted;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    overflow-y: auto;
+}
+
+#att {
+    font-size: 1.4cm;
+    font-weight: normal;
+    text-align: left;
 }
 
 a {
@@ -208,6 +237,8 @@ li {
 }
 
 label {
+    margin: 15%;
+    margin-left: 25%;
     text-align: center;
 }
 

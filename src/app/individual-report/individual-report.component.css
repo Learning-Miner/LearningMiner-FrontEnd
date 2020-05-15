@@ -133,7 +133,7 @@ h4 {
     height: auto;
     position: absolute;
     left: 32%;
-    top: 30%;
+    top: 29.5%;
     z-index: 2;
     padding: 0.5%;
     background-color: white;
@@ -143,11 +143,11 @@ h4 {
 }
 
 p {
-    margin-left: 5.5%;
-    margin-right: 5.5%;
-    margin-top: 0.5%;
-    font-size: 1.4cm;
-    color: #306a76;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 0.2%;
+    font-size: 1.15cm;
+    color: #1d3e44;
     text-align: justify;
 }
 
