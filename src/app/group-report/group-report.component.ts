@@ -113,14 +113,14 @@ export class GroupReportComponent implements OnInit {
         this.barChartLabels.push(i);
       }
       this.barChartDataSimilarity = [{data: res[0].similarity_values, label: 'Similarity values'}];
-      this.barChartDataTime = [{data: res[0].time_used_values, label: 'Number of concepts values'}];
+      this.barChartDataTime = [{data: res[0].time_used_values, label: 'Number of concept values'}];
 
       for (let i = 0; i < res[0].topics.length; i++) {
         if (res[0].topics[i].words.length !== 0) {
           this.barChartLabelWords.push(res[0].topics[i].words);
           this.barChartDataWords.push([
-            {data: res[0].topics[i].importances, label: 'Words importances'},
-            {data: res[0].topics[i].counts, label: 'Words counts'}]
+            {data: res[0].topics[i].importances, label: 'Word importance'},
+            {data: res[0].topics[i].counts, label: 'Word count'}]
           );
         }
       }
