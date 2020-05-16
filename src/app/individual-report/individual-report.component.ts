@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '../services/user.service';
+import {ChartDataSets, ChartOptions, ChartType, RadialChartOptions} from 'chart.js';
+import {Label} from 'ng2-charts';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'cm-individual-report',
@@ -7,13 +11,64 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndividualReportComponent implements OnInit {
 
-  public pieChartLabels: string[] = ['Chrome', 'Safari', 'Firefox', 'Internet Explorer', 'Other'];
-  public pieChartData: number[] = [40, 20, 20 , 10, 10];
-  public pieChartType = 'pie';
+  baseId = '';
+  data: any;
+  student: any;
 
-  constructor() { }
+  public radarChartOptions: RadialChartOptions = {
+    responsive: true,
+    legend: {
+      labels: {
+        fontSize: 50
+      }
+    },
+    scale: {
+      pointLabels: {
+        fontSize: 50
+      },
+      ticks: {
+        fontSize: 50
+      },
+      gridLines: {
+        lineWidth: 10
+      },
+      angleLines: {
+        lineWidth: 10
+      }
+    },
+  };
+  public radarChartLabels: Label[] = [];
+
+  public radarChartData: ChartDataSets[] = [];
+  public radarChartType: ChartType = 'radar';
+  public radarChartLegend = true;
+
+  constructor(
+    private service: UserService,
+    private route: ActivatedRoute
+  ) {
+  }
 
   ngOnInit() {
+    this.baseId = this.route.snapshot.params.baseId;
+    if (localStorage.getItem('rol') === 'Student') {
+      this.service.getStudentReportStudent(this.baseId).subscribe(res => {
+        console.log(res[0])
+        this.radarChartLabels = res[0].topic_distribution.topic;
+        this.radarChartData = [{data: res[0].topic_distribution.importances, label: 'Topic Distribution'}];
+      }, err => {
+        console.log(err);
+      });
+    } else {
+      this.service.getStudentReportTeacher(this.baseId, localStorage.getItem('std_id')).subscribe(res => {
+        console.log(res[0]);
+        this.student = res[0];
+        this.radarChartLabels = res[0].topic_distribution.topic;
+        this.radarChartData = [{data: res[0].topic_distribution.importances, label: 'Topic Distribution'}];
+      }, err => {
+        console.log(err);
+      });
+    }
   }
 
   // events

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>LearningMiner</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Open source concept mapping tool built with angular">
+  <meta name="keywords" content="Pedagogical reading comprehension tool">
+  <meta name="author" content="D2M">
+  <link rel="formatoVentana" href="new-assignment.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <app-navbar></app-navbar>
+
+  <h1>New Activity</h1>
+
+  <div class="container">
+    <form [formGroup]="activityForm">
+
+      <label>Title</label>
+      <input type="text" formControlName="title" placeholder="Ex: An example title"/>
+
+      <label>Author</label>
+      <input type="text" formControlName="authors" placeholder="Ex: Susana Martin, Al Fraihat"/>
+
+      <label>Source</label>
+      <input type="text" formControlName="database" placeholder="Ex: Journal of Fundamental and Applied Sciences"/>
+
+      <label>Text</label>
+      <textarea formControlName="text" placeholder="Ex: Lorem ipsum sit amet..."></textarea>
+
+      <label>Closure date</label>
+      <input type="text" placeholder="dd/mm/aaaa, Ex: (01/01/2000)" formControlName="closureDate"/>
+
+      <label>Closure hour</label>
+      <input type="text"  placeholder="hh:mm, Ex: (14:00)" formControlName="closureHour"/>
+
+      <button (click)="addActivity()">Add activity</button>
+
+    </form>
+  </div>
+</body>
+</html>

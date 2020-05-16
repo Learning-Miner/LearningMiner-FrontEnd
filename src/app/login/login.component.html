@@ -2,43 +2,43 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>LearningMiner</title>
-    <base href="/">
+  <meta charset="utf-8">
+  <title>LearningMiner</title>
+  <base href="/">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Open source concept mapping tool built with angular">
-    <meta name="keywords" content="Pedagogical reading comprehension tool">
-    <meta name="author" content="D2M">
-    <link rel="formatoVentana" href="login.component.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Open source concept mapping tool built with angular">
+  <meta name="keywords" content="Pedagogical reading comprehension tool">
+  <meta name="author" content="D2M">
+  <link rel="formatoVentana" href="login.component.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <section id="pantalla-dividida">
-        <div class="izquierda">
-            <div class="container">
-                <h1> Log In </h1>
-                <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" formControlName="email" class="form-control"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" formControlName="password" class="form-control"/>
-                    </div>
-                    <div class="form-group" style="text-align: center;">
-                        <button class="btn btn-primary" class="b   ">
-                            <span class="spinner-border spinner-border-sm mr-1"></span>
-                            Log In
-                        </button>
-                    </div>
-                </form>
-            </div>
+<section id="pantalla-dividida">
+  <div class="izquierda">
+    <div class="container">
+      <h1> Log In </h1>
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" formControlName="email" class="form-control"/>
         </div>
-        <div class="derecha"> </div>
-    </section>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" formControlName="password" class="form-control"/>
+        </div>
+        <div class="form-group" style="text-align: center;">
+          <button class="btn btn-primary" class="b   ">
+            <span class="spinner-border spinner-border-sm mr-1"></span>
+            Log In
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="derecha"></div>
+</section>
 </body>
 
 </html>

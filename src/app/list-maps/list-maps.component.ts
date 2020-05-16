@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
-import { ConceptMap } from '../conceptmap-module/conceptmap/conceptmap.types';
-import { Map } from '../models/concept-map';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '../services/user.service';
+import {ConceptMap} from '../conceptmap-module/conceptmap/conceptmap.types';
+import {Map} from '../models/concept-map';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'cm-list-maps',
@@ -10,24 +11,24 @@ import { Map } from '../models/concept-map';
 })
 export class ListMapsComponent implements OnInit {
 
-  maps: Map[];
-  mapsTemporal: Map[];
-  constructor(private userService: UserService) { }
+  maps: Array<any> = [];
+
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) {
+  }
 
   ngOnInit() {
     this.userService.getMaps('edit').subscribe(res => {
-      this.maps = res;
-      console.log('Mapas');
-      console.log(this.maps);
-      this.mapsTemporal = this.maps.slice();
-      console.log(this.mapsTemporal);
+      if (!res.Message) {
+        this.maps = res;
+        console.log('Mapas');
+        console.log(this.maps);
+      }
     }, error => {
       console.log(error);
     });
-  }
-
-  click(mapId) {
-    localStorage.setItem('mapId', mapId);
   }
 
   remove(mapId) {
@@ -37,5 +38,13 @@ export class ListMapsComponent implements OnInit {
       console.log(err);
     });
     window.location.reload();
+  }
+
+  goEditor(id) {
+    localStorage.setItem('mapId', id);
+    this.router.navigate(['/editor', id])
+      .then(() => {
+        window.location.reload();
+      });
   }
 }

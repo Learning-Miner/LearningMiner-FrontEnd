@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Map} from '../models/concept-map';
 import {UserService} from '../services/user.service';
 
@@ -9,24 +9,26 @@ import {UserService} from '../services/user.service';
 })
 export class DoneMapsComponent implements OnInit {
 
-  maps: Map[];
-  mapsTemporal: Map[];
-  constructor(private userService: UserService) { }
+  maps: Map[] = [];
+
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit() {
     this.userService.getMaps('done').subscribe(res => {
-      this.maps = res;
-      console.log('Mapas');
-      console.log(this.maps);
-      this.mapsTemporal = this.maps.slice();
-      console.log(this.mapsTemporal);
+      if (!res.Message) {
+        this.maps = res;
+        console.log('Mapas');
+        console.log(this.maps);
+      }
     }, error => {
       console.log(error);
     });
   }
 
-  click(mapId) {
+  click(mapId, baseId) {
     localStorage.setItem('mapId', mapId);
+    localStorage.setItem('baseId', baseId);
   }
 
   remove(mapId) {

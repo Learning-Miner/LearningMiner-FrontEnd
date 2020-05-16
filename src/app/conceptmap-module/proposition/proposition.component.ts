@@ -16,7 +16,7 @@ function rectangleClip(rectWidth, rectHeight, x, y): {x: number, y: number} {
   const heightBound = rectHeight / 2;
   const widthBound = rectWidth / 2;
   /*
-    * The two condition below indecates the direction of the 'from' concept at the 'to' concept
+    * The two condition below indecates the direction of the 'frm' concept at the 'to' concept
     * which is needed to decide which edge of the 'to' concept should be used for clipping.
     *
     * t1, t2 will show values as illustrated below.
@@ -79,11 +79,11 @@ export class PropositionComponent implements OnInit, OnDestroy, DoCheck, Selecta
 
   @ViewChild('label') label: ElementRef;
 
-  from: ConceptComponent;
+  frm: ConceptComponent;
   to: ConceptComponent;
 
   private shape = {
-    from: {height: 0, width: 0},
+    frm: {height: 0, width: 0},
     to: {height: 0, width: 0},
     diff: {x: 0, y: 0},
     startClipping: {x: 0, y: 0},
@@ -98,23 +98,23 @@ export class PropositionComponent implements OnInit, OnDestroy, DoCheck, Selecta
   ) { }
 
   get labelX() {
-    return (this.from.concept.x + this.shape.startClipping.x + this.to.concept.x + this.shape.endClippint.x) / 2;
+    return (this.frm.concept.x + this.shape.startClipping.x + this.to.concept.x + this.shape.endClippint.x) / 2;
   }
 
   get labelY() {
-    return (this.from.concept.y + this.shape.startClipping.y + this.to.concept.y + this.shape.endClippint.y) / 2;
+    return (this.frm.concept.y + this.shape.startClipping.y + this.to.concept.y + this.shape.endClippint.y) / 2;
   }
 
   get svgLinePath() {
     return [
-      'M', this.from.concept.x + this.shape.startClipping.x, this.from.concept.y + this.shape.startClipping.y,
+      'M', this.frm.concept.x + this.shape.startClipping.x, this.frm.concept.y + this.shape.startClipping.y,
       'L', this.to.concept.x + this.shape.endClippint.x, this.to.concept.y + this.shape.endClippint.y
     ].join(' ');
   }
 
   ngOnInit() {
     this.manager.addPropositionComponent(this);
-    this.from = this.manager.getConceptComponent(this.proposition.from);
+    this.frm = this.manager.getConceptComponent(this.proposition.frm);
     this.to = this.manager.getConceptComponent(this.proposition.to);
 
     // get focus on creation
@@ -129,27 +129,27 @@ export class PropositionComponent implements OnInit, OnDestroy, DoCheck, Selecta
 
   ngDoCheck() {
     // update line path if needed //
-    const vx = this.to.concept.x - this.from.concept.x;
-    const vy = this.to.concept.y - this.from.concept.y;
+    const vx = this.to.concept.x - this.frm.concept.x;
+    const vy = this.to.concept.y - this.frm.concept.y;
     if (
         this.shape.diff.x !== vx || this.shape.diff.y !== vy
         ||
-        this.shape.from.width !== this.from.width || this.shape.from.height !== this.from.height
+        this.shape.frm.width !== this.frm.width || this.shape.frm.height !== this.frm.height
         ||
         this.shape.to.width !== this.to.width || this.shape.to.height !== this.to.height
       ) {
       this.shape.diff.x = vx;
       this.shape.diff.y = vy;
-      this.shape.from.width = this.from.width;
-      this.shape.from.height = this.from.height;
+      this.shape.frm.width = this.frm.width;
+      this.shape.frm.height = this.frm.height;
       this.shape.to.width = this.to.width;
       this.shape.to.height = this.to.height;
 
-      const fromClipped = rectangleClip(this.from.width, this.from.height, -this.shape.diff.x, -this.shape.diff.y);
+      const frmClipped = rectangleClip(this.frm.width, this.frm.height, -this.shape.diff.x, -this.shape.diff.y);
       const toClipped = rectangleClip(this.to.width, this.to.height, this.shape.diff.x, this.shape.diff.y);
 
-      this.shape.startClipping.x = fromClipped.x;
-      this.shape.startClipping.y = fromClipped.y;
+      this.shape.startClipping.x = frmClipped.x;
+      this.shape.startClipping.y = frmClipped.y;
       this.shape.endClippint.x = toClipped.x;
       this.shape.endClippint.y = toClipped.y;
     }
@@ -240,12 +240,12 @@ export class PropositionComponent implements OnInit, OnDestroy, DoCheck, Selecta
           e => {
             this.mouse.cursorStyle = 'move';
             this.selection.selectedConceptComponent.forEach((c) => {
-              if (c !== this.from && c !== this.to) {
+              if (c !== this.frm && c !== this.to) {
                 c.concept.x += e.browserEvent.movementX;
                 c.concept.y += e.browserEvent.movementY;
               }
             });
-            for (const c of [this.from, this.to]) {
+            for (const c of [this.frm, this.to]) {
               c.concept.x += e.browserEvent.movementX;
               c.concept.y += e.browserEvent.movementY;
             }

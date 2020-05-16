@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit {
           console.log(data);
           localStorage.setItem('token', data.token);
           localStorage.setItem('rol', data.rol);
-          this.router.navigate(['/list']);
+          this.router.navigate(['/main-menu']);
         }, err => {
           console.log(err);
         });

@@ -5,37 +5,72 @@
   <title>LearningMiner</title>
   <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Open source concept mapping tool built with angular">
   <meta name="keywords" content="Pedagogical reading comprehension tool">
   <meta name="author" content="D2M">
-  <link rel="formatoVentana" href="list-maps.component.css">
+  <link rel="formatoVentana" href="group-report.component.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 <app-navbar></app-navbar>
-<h1>Reporte grupal</h1>
+<h1>Group Report</h1>
 
-<div class="chart-wrapper">
+<label id="t">Similarity values graph</label>
+<div id="g" *ngIf="barChartDataSimilarity.length > 0">
   <canvas baseChart
-          [datasets]="barChartData"
+          style="height: 10%; width: 10%"
+          [datasets]="barChartDataSimilarity"
           [labels]="barChartLabels"
           [options]="barChartOptions"
           [legend]="barChartLegend"
-          [chartType]="barChartType">
+          [chartType]="barChartType"
+          [colors]="chartColors">
   </canvas>
+  <p> The chart shows the distribution of the similarity values of each student map with the base concept map. To compute this value Overlapping Degree is used, which analyses whether there is a significant number of common concepts and these are placed (connected) in the same way. This metric takes values between 0 and 1. Where 0 is completely different and 1 is exactly equal. X axis represents each student and in Y axis the value its map got.  </p>
 </div>
 
-<div class="chart-wrapper">
+<label id="t">Concept numbers</label>
+<div id="g" *ngIf="barChartDataHorizontal.length > 0">
   <canvas baseChart
-          [datasets]="lineChartData"
-          [labels]="lineChartLabels"
-          [options]="lineChartOptions"
-          [colors]="lineChartColors"
-          [legend]="lineChartLegend"
-          [chartType]="lineChartType">
+          style="height:10%; width: 10%"
+          [options]="barChartOptions"
+          [datasets]="barChartDataHorizontal"
+          [labels]="barChartLabelsHorizontal"
+          [legend]="barChartLegendHorizontal"
+          [chartType]="barChartType">
   </canvas>
+  <p> The chart shows the distribution of the number of concepts used by each student on their concept maps. A number of concepts between 15 and 20 shows long-term concept retention, good capacity of synthesis and identify important parts of text. A concept map with more than 20 concepts shows lower synthesis capacity and less than 15 concepts shows that important parts might be skipped. X axis represents each student and in Y axis the number of concepts in its map. </p>
+</div>
+
+<label id="t">Students used time</label>
+<div id="g" *ngIf="barChartDataTime.length > 0">
+  <canvas baseChart
+          style="height:10%; width: 10%"
+          [datasets]="barChartDataTime"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          [colors]="chartColors2">
+  </canvas>
+  <p> The chart shows the distribution of the time used by each student to create their concept maps. This is a useful indicator of how difficult it was for the students to complete the activity. X axis represents each student and in Y axis the value its map got.  </p>
+</div>
+
+<div id="g" *ngIf="barChartLabelWords.length > 0">
+  <section *ngFor="let chart of barChartDataWords; let i = index">
+    <label id="t">Topic {{i}}</label>
+    <canvas baseChart
+            style="height:10%; width: 10%"
+            [datasets]="barChartDataWords[i]"
+            [labels]="barChartLabelWords[i]"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartTypeHorizontal">
+    </canvas>
+  </section>
+  <p>This chart shows the keywords of a topic and how important the word is and its count in the overall of the students' concept maps. The importance of a keyword is relative to the frequency of the word in the concept maps belonging to that topic. The X axis has the value of importance and word count and the Y axis shows the keyword. </p>
 </div>
 
 </body>

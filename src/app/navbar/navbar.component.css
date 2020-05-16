@@ -5,6 +5,7 @@ ul {
     overflow: hidden;
     background-color: #f6e3a0;
     font-family: "Montserrat";
+    width: 100%;
 }
 
 li {
@@ -35,4 +36,5 @@ li button {
 button:hover {
     cursor: pointer;
     font-weight: bold;
+    background-color: #306a76;
 }
