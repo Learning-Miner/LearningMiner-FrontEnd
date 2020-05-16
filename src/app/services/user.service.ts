@@ -164,7 +164,7 @@ export class UserService {
   }
 
   closeActivity(actId): Observable<any> {
-    return this.http.put(`${this.USER_END_POINT}activity/${actId}` ,
+    return this.http.put(`${this.USER_END_POINT}activity/${actId}`,
       {
         'isClosed': true
       });

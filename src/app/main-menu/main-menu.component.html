@@ -72,7 +72,7 @@
     <label id="tl" *ngIf="activities.length == 0">User does not schedule any activity</label>
      <table id="tt" *ngFor="let activity of activities">
       <tr>
-        <td id="att">{{activity.Title}} <br/> <b>Due to date:</b>{{activity.dateClose}}</td>
+        <td id="att">{{activity.Title}} <br/> <b>Due to date: </b>{{activity.dateClose | date: "short"}}</td>
       </tr>
     </table>
   </div>
