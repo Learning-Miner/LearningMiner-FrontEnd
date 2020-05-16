@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../services/user.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'cm-group-maps',
@@ -14,7 +14,8 @@ export class GroupMapsComponent implements OnInit {
 
   constructor(
     private service: UserService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
   }
 
@@ -32,5 +33,9 @@ export class GroupMapsComponent implements OnInit {
 
   storeMap(id) {
     localStorage.setItem('mapId', id);
+    this.router.navigate(['/editor', id])
+      .then(() => {
+        window.location.reload();
+      });
   }
 }

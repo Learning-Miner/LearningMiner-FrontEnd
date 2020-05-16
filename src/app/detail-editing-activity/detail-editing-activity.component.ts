@@ -3,11 +3,11 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../services/user.service';
 
 @Component({
-  selector: 'cm-activity-detail',
-  templateUrl: './activity-detail.component.html',
-  styleUrls: ['./activity-detail.component.css']
+  selector: 'cm-detail-editing-activity',
+  templateUrl: './detail-editing-activity.component.html',
+  styleUrls: ['./detail-editing-activity.component.css']
 })
-export class ActivityDetailComponent implements OnInit {
+export class DetailEditingActivityComponent implements OnInit {
 
   activityId = '';
   activity: any;
@@ -80,4 +80,5 @@ export class ActivityDetailComponent implements OnInit {
       console.log(err);
     });
   }
+
 }

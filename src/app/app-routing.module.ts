@@ -17,6 +17,7 @@ import {ClosedActivitiesComponent} from './closed-activities/closed-activities.c
 import {ActivityDetailComponent} from './activity-detail/activity-detail.component';
 import {IndividualReportsComponent} from './individual-reports/individual-reports.component';
 import {GroupMapsComponent} from './group-maps/group-maps.component';
+import {DetailEditingActivityComponent} from './detail-editing-activity/detail-editing-activity.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'startMenu', pathMatch: 'full' },
@@ -36,7 +37,8 @@ const routes: Routes = [
   { path: 'closedActivities', component: ClosedActivitiesComponent, canActivate: [AuthGuard] },
   { path: 'activity/:id', component: ActivityDetailComponent, canActivate: [AuthGuard] },
   { path: 'individualReports/:baseId', component: IndividualReportsComponent, canActivate: [AuthGuard] },
-  { path: 'groupMaps/:baseId', component: GroupMapsComponent, canActivate: [AuthGuard] }
+  { path: 'groupMaps/:baseId', component: GroupMapsComponent, canActivate: [AuthGuard] },
+  { path: 'editActivity/:id', component: DetailEditingActivityComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

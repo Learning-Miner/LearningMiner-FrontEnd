@@ -40,7 +40,7 @@
       </section>
     </div>
 
-    <div id="kt" *ngIf="service.isTeacher()">   
+    <div id="kt" *ngIf="service.isTeacher()">
       <table *ngFor="let keyword of keywordsArray; let i = index" >
         <tr>
           <td><label>{{keyword}}</label></td>
@@ -51,10 +51,10 @@
 
     <h6 *ngIf="service.isTeacher()">Type a keyword</h6>
 
-    <input type="text" (change)="addKeyword($event)" *ngIf="service.isTeacher()"/>
+    <input type="text" (change)="addKeyword($event)" [(ngModel)]="keyword" *ngIf="service.isTeacher()"/>
 
     <button id="add" class="btn" *ngIf="service.isTeacher()">Add</button>
- 
+
     <div id="ed"> <b>End Date: </b>{{activity.dateClose}}</div>
 
     <button class="start" *ngIf="service.isStudent()" (click)="click(activity.Title, activity.baseId)"> Start to Create </button>

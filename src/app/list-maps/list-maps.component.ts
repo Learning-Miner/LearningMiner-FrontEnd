@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from '../services/user.service';
 import {ConceptMap} from '../conceptmap-module/conceptmap/conceptmap.types';
 import {Map} from '../models/concept-map';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'cm-list-maps',
@@ -12,7 +13,10 @@ export class ListMapsComponent implements OnInit {
 
   maps: Array<any> = [];
 
-  constructor(private userService: UserService) {
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) {
   }
 
   ngOnInit() {
@@ -27,10 +31,6 @@ export class ListMapsComponent implements OnInit {
     });
   }
 
-  click(mapId) {
-    localStorage.setItem('mapId', mapId);
-  }
-
   remove(mapId) {
     this.userService.deleteMap(mapId).subscribe(res => {
       console.log(res);
@@ -38,5 +38,13 @@ export class ListMapsComponent implements OnInit {
       console.log(err);
     });
     window.location.reload();
+  }
+
+  goEditor(id) {
+    localStorage.setItem('mapId', id);
+    this.router.navigate(['/editor', id])
+      .then(() => {
+        window.location.reload();
+      });
   }
 }

@@ -31,6 +31,7 @@ import {ClosedActivitiesComponent} from './closed-activities/closed-activities.c
 import { ActivityDetailComponent } from './activity-detail/activity-detail.component';
 import { IndividualReportsComponent } from './individual-reports/individual-reports.component';
 import { GroupMapsComponent } from './group-maps/group-maps.component';
+import { DetailEditingActivityComponent } from './detail-editing-activity/detail-editing-activity.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { GroupMapsComponent } from './group-maps/group-maps.component';
     ActivityDetailComponent,
     IndividualReportsComponent,
     GroupMapsComponent,
+    DetailEditingActivityComponent,
   ],
     imports: [
         BrowserAnimationsModule,

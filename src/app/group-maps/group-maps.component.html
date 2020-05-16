@@ -22,7 +22,7 @@
     <tr>
       <td><h2>Map {{i + 1}}</h2></td>
       <td></td>
-      <td><a id="vm" class="btn btn-primary" [routerLink]="['/editor', s._id.$oid]" (click)="storeMap(s._id.$oid)">View map</a></td>
+      <td><a id="vm" class="btn btn-primary" (click)="storeMap(s._id.$oid)">View map</a></td>
     </tr>
   </table>
 </div>

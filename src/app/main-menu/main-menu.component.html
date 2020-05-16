@@ -28,6 +28,8 @@
       <p> In theory, a concept map should have <b>5 or 6 keywords</b>, and each of them should have around <b>3 related concepts</b>, having a <b>total</b> of between <b>18 and 20 concepts</b>. </p>
       <p> It is also important to highlight the number of concepts at a congnitive level. To improve the long-term concept retention, it is recommended to have <b>3 or 4 keywords</b>. However, this can be improved through conceptual recollection, leaving to remember <b>7</b> long-term concepts.</p>
       <p> In sum, it is recommended to elaborate a concept map using between <b>5 and 7 keywords and between 15 and 20 concepts in total</b>. </p>
+      <p><strong>Instructions: </strong></p>
+      <p>Take into account that, in every single activity there would be some details such as <b>keywords</b> that are strongly recommended to be used in your concept map</p>
     </div>
   </div>
 
@@ -68,8 +70,8 @@
 
   <div class="actividades" >
     <label id="tl" *ngIf="activities.length == 0">User does not schedule any activity</label>
-     <table id="tt" *ngFor="let activity of activities"> 
-      <tr> 
+     <table id="tt" *ngFor="let activity of activities">
+      <tr>
         <td id="att">{{activity.Title}} <br/> <b>Due to date:</b>{{activity.dateClose}}</td>
       </tr>
     </table>

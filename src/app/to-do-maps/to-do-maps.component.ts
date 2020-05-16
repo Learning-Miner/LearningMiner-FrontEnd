@@ -33,7 +33,10 @@ export class ToDoMapsComponent implements OnInit {
   click(title: string, baseId) {
     this.userService.createMap(title, baseId).subscribe(res => {
       console.log(res);
-      this.router.navigate(['/editor/' + res.id]);
+      this.router.navigate(['/editor/' + res.id])
+        .then(() => {
+          window.location.reload();
+        });
     }, err => {
       console.log(err);
     });
