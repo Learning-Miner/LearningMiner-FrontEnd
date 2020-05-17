@@ -14,34 +14,40 @@
 </head>
 
 <body>
-  <app-navbar></app-navbar>
+<app-navbar></app-navbar>
+<h1>New Activity</h1>
 
-  <h1>New Activity</h1>
+<div class="container">
+  <form [formGroup]="activityForm">
 
-  <div class="container">
-    <form [formGroup]="activityForm">
+    <label>Title</label>
+    <input type="text" formControlName="title" placeholder="Ex: An example title"/>
 
-      <label>Title</label>
-      <input type="text" formControlName="title" placeholder="Ex: An example title"/>
+    <label>Author</label>
+    <input type="text" formControlName="authors" placeholder="Ex: Susana Martin, Al Fraihat"/>
 
-      <label>Author</label>
-      <input type="text" formControlName="authors" placeholder="Ex: Susana Martin, Al Fraihat"/>
+    <label>Source</label>
+    <input type="text" formControlName="database" placeholder="Ex: Journal of Fundamental and Applied Sciences"/>
 
-      <label>Source</label>
-      <input type="text" formControlName="database" placeholder="Ex: Journal of Fundamental and Applied Sciences"/>
+    <label>Text</label>
+    <textarea formControlName="text" placeholder="Ex: Lorem ipsum sit amet..."></textarea>
 
-      <label>Text</label>
-      <textarea formControlName="text" placeholder="Ex: Lorem ipsum sit amet..."></textarea>
+    <label>Closure date</label>
+    <input type="text" placeholder="dd/mm/aaaa, Ex: (01/01/2000)" formControlName="closureDate"/>
 
-      <label>Closure date</label>
-      <input type="text" placeholder="dd/mm/aaaa, Ex: (01/01/2000)" formControlName="closureDate"/>
-
-      <label>Closure hour</label>
-      <input type="text"  placeholder="hh:mm, Ex: (14:00)" formControlName="closureHour"/>
-
-      <button (click)="addActivity()">Add activity</button>
-
-    </form>
-  </div>
+    <label>Closure hour</label>
+    <input type="text" placeholder="hh:mm, Ex: (14:00)" formControlName="closureHour"/>
+    <div class="alert alert-info alert-custom" *ngIf="alert">
+      <strong>Info!</strong> We are processing the text. Wait a moment please.
+    </div>
+    <button *ngIf="!alert" (click)="addActivity()">Add activity</button>
+  </form>
+</div>
+<div class="alert alert-danger alert-custom-danger" *ngIf="alertDanger">
+  <strong>Danger!</strong> We couldn't add the activity, something is wrong.
+</div>
+<div class="alert alert-success alert-custom-danger" *ngIf="alertSuccess">
+  <strong>Success!</strong> We added your activity.
+</div>
 </body>
 </html>

@@ -42,10 +42,8 @@ export class ActivityDetailComponent implements OnInit {
     }
   }
 
-  addKeyword(event: any) {
-    console.log(event.target.value);
-    const keyword = event.target.value;
-    this.keywordsArray.push(keyword);
+  addKeyword() {
+    this.keywordsArray.push(this.keyword);
     this.keyword = '';
   }
 

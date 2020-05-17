@@ -47,7 +47,12 @@ export class MainMenuComponent implements OnInit {
       this.userService.getActivities('open')
         .subscribe(res => {
           if (!res.Message) {
-            this.activities = res;
+            for (const item of res) {
+              this.userService.getActivityTeacher(item.actId)
+                .subscribe(tasks => {
+                  this.activities.push(tasks);
+                });
+            }
             console.log(this.activities);
           }
         }, err => {

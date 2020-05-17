@@ -143,6 +143,7 @@ label {
 
 #a {
   width: 35%;
+  height: 3.4cm;
   position: absolute;
   left: 40%;
   top: 28%;
@@ -157,6 +158,7 @@ label {
   border-style: solid;
   padding: 0%;
   overflow-x: auto;
+  overflow-y: auto;
 }
 
 #db {
@@ -164,6 +166,7 @@ label {
   position: absolute;
   left: 40%;
   top: 34.5%;
+  height: 3.4cm;
   z-index: 2;
   font-size: 1.8cm;
   background-color: white;
@@ -172,6 +175,7 @@ label {
   text-align: center;
   border-style: solid;
   padding: 0%;
+  overflow-y: auto;
 }
 
 #k {
@@ -179,7 +183,7 @@ label {
   height: 27vh;
   position: absolute;
   left: 40%;
-  top: 40%;
+  top: 42%;
   z-index: 2;
   font-size: 1.8cm;
   background-color: white;
