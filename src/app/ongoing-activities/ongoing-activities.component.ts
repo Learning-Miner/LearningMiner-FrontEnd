@@ -32,19 +32,18 @@ export class OngoingActivitiesComponent implements OnInit {
   closeActivity(baseId, actId) {
     this.service.closeActivity(actId).subscribe(tasks => {
       console.log(tasks);
-      this.service.createReports(baseId).subscribe(res => {
+      this.router.navigate(['/closedActivities'])
+        .then(() => {
+          window.location.reload();
+        });
+      /*this.service.createReports(baseId).subscribe(res => {
         console.log(res);
       }, err => {
         console.log(err);
-      });
+      });*/
     }, error => {
       console.log(error);
     });
-
-    this.router.navigate(['/closedActivities'])
-      .then(() => {
-        window.location.reload();
-      });
   }
 
 }

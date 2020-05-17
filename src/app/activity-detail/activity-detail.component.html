@@ -51,9 +51,9 @@
 
     <h6 *ngIf="service.isTeacher()">Type a keyword</h6>
 
-    <input type="text" (change)="addKeyword($event)" [(ngModel)]="keyword" *ngIf="service.isTeacher()"/>
+    <input type="text" [(ngModel)]="keyword" *ngIf="service.isTeacher()"/>
 
-    <button id="add" class="btn" *ngIf="service.isTeacher()">Add</button>
+    <button id="add" class="btn" (click)="addKeyword()" *ngIf="service.isTeacher()">Add</button>
 
     <div id="ed"> <b>End Date: </b>{{activity.dateClose}}</div>
 

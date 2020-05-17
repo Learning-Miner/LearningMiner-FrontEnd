@@ -106,7 +106,8 @@ export class UserService {
 
   sendMap(mapId: string) {
     return this.http.put(this.USER_END_POINT + 'cpt-map/' + mapId, {
-      isDone: true
+      isDone: true,
+      dateFinished: new Date().toLocaleDateString() + 'T' + new Date().toLocaleTimeString()
     });
   }
 
