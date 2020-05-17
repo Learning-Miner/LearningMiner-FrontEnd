@@ -12,6 +12,9 @@ export class NewAssignmentComponent implements OnInit {
 
   keywordsArray: Array<string> = [];
   activityForm: FormGroup;
+  alert = false;
+  alertDanger = false;
+  alertSuccess = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -47,6 +50,8 @@ export class NewAssignmentComponent implements OnInit {
 
   addActivity() {
     console.log(this.activityForm);
+    this.alert = true;
+    this.alertDanger = false;
     const data = {
       'title': this.activityForm.get('title').value,
       'text': this.activityForm.get('text').value,
@@ -56,8 +61,12 @@ export class NewAssignmentComponent implements OnInit {
     };
     this.service.createActivity(data).subscribe(res => {
       console.log(res);
+      this.alertSuccess = true;
+      // this.alert = false;
       this.router.navigate(['/activity/' + res.act_id]);
     }, err => {
+      this.alertDanger = true;
+      this.alert = false;
       console.log(err);
     });
   }

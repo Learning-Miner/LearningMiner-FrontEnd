@@ -143,7 +143,7 @@ tr a:hover {
 #sa {
   font-size: 2cm;
   width: 50%;
-  margin-top: 4%;
+  margin-top: 0%;
   margin-left: 25%;
   background-color: #e7f3f7;
   color: #306a76;
@@ -248,4 +248,20 @@ a:hover {
   color: #306a76;
   font-weight: bold;
   background-color: #f6e3a0;
+}
+
+.center {
+  display: block;
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 8%;
+}
+
+.centerS {
+  display: block;
+  margin-top: 4%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 16%;
 }
