@@ -34,10 +34,10 @@ export class ListMapsComponent implements OnInit {
   remove(mapId) {
     this.userService.deleteMap(mapId).subscribe(res => {
       console.log(res);
+      window.location.reload();
     }, err => {
       console.log(err);
     });
-    window.location.reload();
   }
 
   goEditor(id) {

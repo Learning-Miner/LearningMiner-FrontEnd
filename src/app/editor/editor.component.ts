@@ -158,6 +158,7 @@ export class EditorComponent implements OnInit, DoCheck {
     this.userService.updateMap(mapId, JSON.parse(this.cmap.export()))
       .subscribe(res => {
         console.log(res);
+        window.location.reload();
       }, err => {
         console.log(err);
       });
