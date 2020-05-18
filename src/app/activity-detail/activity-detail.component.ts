@@ -57,6 +57,7 @@ export class ActivityDetailComponent implements OnInit {
     this.activity.key_concepts = this.keywordsArray;
     this.service.updateActivity(this.activityId, this.activity).subscribe(res => {
       console.log(res);
+      window.location.reload();
     }, err => {
       console.log(err);
     });

@@ -14,6 +14,9 @@ export class IndividualReportComponent implements OnInit {
   baseId = '';
   data: any;
   student: any;
+  hours = 0;
+  minutes = 0;
+  seconds = 0;
 
   public radarChartOptions: RadialChartOptions = {
     responsive: true,
@@ -55,7 +58,10 @@ export class IndividualReportComponent implements OnInit {
       this.service.getStudentReportStudent(this.baseId).subscribe(res => {
         console.log(res[0]);
         this.student = res[0];
-        this.student.time_used = Number(this.student.time_used / 3600).toFixed(2);
+        this.student.similarity = this.student.similarity.toFixed(2);
+        this.hours = Math.floor(Number(this.student.time_used / 3600));
+        this.minutes = Math.floor((Number(this.student.time_used / 3600) % 1) * 60);
+        this.seconds = Math.round(((Number(this.student.time_used / 3600) % 1) * 60) % 1 * 60);
         this.radarChartLabels = res[0].topic_distribution.topic;
         this.radarChartData = [{data: res[0].topic_distribution.importances, label: 'Topic Distribution'}];
       }, err => {
@@ -65,7 +71,10 @@ export class IndividualReportComponent implements OnInit {
       this.service.getStudentReportTeacher(this.baseId, localStorage.getItem('std_id')).subscribe(res => {
         console.log(res[0]);
         this.student = res[0];
-        this.student.time_used = Number(this.student.time_used / 3600).toFixed(2);
+        this.student.similarity = this.student.similarity.toFixed(2);
+        this.hours = Math.floor(Number(this.student.time_used / 3600));
+        this.minutes = Math.floor((Number(this.student.time_used / 3600) % 1) * 60);
+        this.seconds = Math.round(((Number(this.student.time_used / 3600) % 1) * 60) % 1 * 60);
         this.radarChartLabels = res[0].topic_distribution.topic;
         this.radarChartData = [{data: res[0].topic_distribution.importances, label: 'Topic Distribution'}];
       }, err => {
