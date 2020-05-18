@@ -18,3 +18,5 @@ Set up for development
 
 4. Run app with ```ng serve --open```, that command will open you the browser on **localhost:4200**, but if you want another port you
 could use ```ng serve --open --port port```
+
+If you want to learn about how to use it and its manual, click [here](https://github.com/Learning-Miner/LearningMiner-Frontend/wiki).
